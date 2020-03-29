@@ -117,3 +117,18 @@ CREATE TABLE IF NOT EXISTS `endereco`(
     PRIMARY KEY (`id`),
     FOREIGN KEY (`estadoId`) REFERENCES (`estado`)
 );
+
+CREATE TABLE IF NOT EXISTS `login`(
+    `id` INT (9) AUTO_INCREMENT NOT NULL,
+    `login` VARCHAR (10) NOT NULL,
+    `senha` VARCHAR (20) NOT NULL,
+    `confirmarSenha` VARCHAR (20) NOT NULL,
+    `tipoLogin` INT(9) NOT NULL,
+    PRIMARY KEY (`id`) 
+)
+
+CREATE TABLE IF NOT EXISTS `tipoLogin`(
+    `id` INT (9) AUTO_INCREMENT NOT NULL,
+    `nome` VARCHAR (18) NOT NULL,
+    PRIMARY KEY (`id`) 
+);
