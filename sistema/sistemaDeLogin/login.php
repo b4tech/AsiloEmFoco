@@ -12,7 +12,7 @@
 
     if (isset($entrar)) {
 
-      $verifica = mysql_query("SELECT * FROM login WHERE login = '$login' AND senha = '$senha' ") or die("erro ao selecionar");
+      $verifica = mysql_query("SELECT * FROM login WHERE username = '$login' AND password = '$senha' ") or die("erro ao selecionar");
 
         if (mysql_num_rows($verifica)<=0){
 
