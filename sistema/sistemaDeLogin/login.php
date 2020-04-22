@@ -1,10 +1,10 @@
 <?php
 
-  $login = $_POST['username'];
+  $login = $_POST['login'];
 
   $entrar = $_POST['entrar'];
 
-  $senha = $_POST['password'];
+  $senha = $_POST['senha'];
 
   $connect = mysql_connect('sql309.ihostfull.com','uoolo_25596133','#b4technologies#');
 
