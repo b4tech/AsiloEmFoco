@@ -6,9 +6,9 @@
 
   $senha = $_POST['password'];
 
-  $connect = mysql_connect('localhost','id13009607_dev','HJdcidZQqn<AZ>6L');
+  $connect = mysql_connect('sql309.ihostfull.com','uoolo_25596133','#b4technologies#');
 
-  $db = mysql_select_db('id13009607_bancodedados');
+  $db = mysql_select_db('uoolo_25596133_asilo');
 
     if (isset($entrar)) {
 
