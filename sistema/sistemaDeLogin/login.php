@@ -1,20 +1,18 @@
 <?php
 
-  $login = $_POST['login'];
+  $login = $_POST['username'];
 
   $entrar = $_POST['entrar'];
 
-  $senha = $_POST['senha'];
+  $senha = $_POST['password'];
 
-  $connect = mysql_connect('localhost','root','usbw');
+  $connect = mysql_connect('localhost','id13009607_dev','HJdcidZQqn<AZ>6L');
 
-  $db = mysql_select_db('sistemadelogin');
+  $db = mysql_select_db('id13009607_bancodedados');
 
     if (isset($entrar)) {
 
-             
-
-      $verifica = mysql_query("SELECT * FROM usuarios WHERE login = '$login' AND senha = '$senha' ") or die("erro ao selecionar");
+      $verifica = mysql_query("SELECT * FROM login WHERE login = '$login' AND senha = '$senha' ") or die("erro ao selecionar");
 
         if (mysql_num_rows($verifica)<=0){
 
