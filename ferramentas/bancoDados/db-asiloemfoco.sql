@@ -19,8 +19,7 @@ SET time_zone = "+00:00";
 --
 -- Base de Dados: `asiloemfoco`
 --
-CREATE DATABASE IF NOT EXISTS `asiloemfoco` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
-USE `asiloemfoco`;
+
 
 -- --------------------------------------------------------
 
