@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SGA - Cadastro de Usuário</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="create-page">
+        <div class="form">
+            <form action="cadastro.php" method="POST">
+                <select name="type" id="type" onchange="showDiv(this)">
+                    <option value="1">Asilo</option>
+                    <option value="2">Enfermeiro</option>
+                    <option value="3">Responsável</option>
+                </select><br /><br />
+                <!-- Asilo -->
+                <div class="asilo" id="asilo">
+                    <label for="login">Usuário:</label> <input type="text" id="login" name="login"><br/>
+                    <label for="senha">Senha:</label> <input type="password" id="senha" name="senha"><br/>
+                    <label for="razaoSocial">Razão Social: </label><input type="text" name="razaoSocial" id="razaoSocial"><br />
+                    <label for="cnpj">CNPJ: </label> <input type="number" name="cnpj" id="cnpj"><br />
+                    <label for="email">E-Mail: </label> <input type="email" name="email" id="email"><br />
+                    <label for="telefone">Telefone: </label><input type="tel" name="telefone" id="telefone"><br />
+                    <label for="logradouro">Logradouro: </label> <input type="text" name="logradouro" id="logradouro"><br />
+                    <label for="cidade">Cidade: </label> <input type="text" name="cidade" name="cidade"><br />
+                    <label for="complemento">Complemento: </label> <input type="text" name="complemento" id="complemento"><br />
+                    <label for="numero">Número: </label> <input type="number" name="numero" id="numero"><br />
+                    <label for="cep">CEP: </label> <input type="number" name="cep" id="cep"><br />
+                    <label for="bairro">Bairro: </label> <input type="text" name="bairro" id="bairro"><br />
+                </div>
+                <!-- Enfermeiro -->
+                <div class="enfermeiro" id="enfermeiro">
+                    <label for="login">Usuário enfermeiro:</label> <input type="text" id="login" name="login"><br/>
+                </div>
+                <!-- Responsável -->
+                <div class="responsavel" id="responsavel">
+                    <label for="login">Usuário responsavel:</label> <input type="text" id="login" name="login"><br/>
+                </div>
+
+                <input type="submit" value="Cadastrar" name="cadastrar" id="cadastrar">
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>
+
+<script>
+    function showDiv(element) {
+        console.log(element.value);
+        if (element.value == 1) {
+            document.getElementById("asilo").style.display = 'block';
+            document.getElementById("enfermeiro").style.display = 'none';
+            document.getElementById("responsavel").style.display = 'none';
+        } else if (element.value == 2) {
+            document.getElementById("asilo").style.display = 'none';
+            document.getElementById("enfermeiro").style.display = 'block';
+            document.getElementById("responsavel").style.display = 'none';
+        } else if (element.value == 3) {
+            document.getElementById("asilo").style.display = 'none';
+            document.getElementById("enfermeiro").style.display = 'none';
+            document.getElementById("responsavel").style.display = 'block';
+        }
+    }
+</script>
