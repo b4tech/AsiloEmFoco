@@ -23,33 +23,36 @@
 
     $db = mysql_select_db('sistemadelogin');
 
-    $query_select = "SELECT login FROM usuarios WHERE login='$login'";
+    if ($tipoCadastro == 1){
+      $query_select = "SELECT cnpj FROM asilo WHERE cnpj='$cnpj'";
+      $select = mysql_query($query_select, $connect);
+      $array = mysql_fetch_array($select);
+      $logarray = $array['cnpj'];
+    } else if ($tipoCadastro == 2){
+      $query_select = "SELECT cpf FROM responsavel WHERE cpf='$cpf'";
+      $select = mysql_query($query_select, $connect);
+      $array = mysql_fetch_array($select);
+      $logarray = $array['cpf'];
+    }
 
-    $select = mysql_query($query_select, $connect);
-
-    $array = mysql_fetch_array($select);
-
-    $logarray = $array['login'];
-
-    if($login == "" || $login == null){
-
-        echo"<script language='javascript' type='text/javascript'>alert('O campo login deve ser preenchido');window.location.href='cadastro.html';</script>";
     
-        }else{
-    
-          if($logarray == $login){
+          if($logarray == $cnpj && $tipoCadastro == 1 || $logarray == $cpf && $tipoCadastro == 2){
     
             echo"<script language='javascript' type='text/javascript'>alert('Esse login já existe');window.location.href='cadastro.html';</script>";
     
             die();
-    
-     
-    
+
           }else{
-    
-            $query ="INSERT INTO usuarios (login, senha) VALUES ('$login','$senha')";
-    
-            $insert = mysql_query($query,$connect);
+
+            if($tipoCadastro == 1){
+              $query ="INSERT INTO asilo (login, senha, razaoSocial, cnpj, email, telefone, tipoTel, cep, logradouro, numero, complemento, bairro, cidade, estado)
+              VALUES ('$login','$senha', '$razaoSocial', '$cnpj', '$email', '$telefone', '$tipoTel', '$cep', '$logradouro', '$logradouro', '$numero', '$complemento', '$bairro', '$cidade', '$estado')";
+              $insert = mysql_query($query,$connect);
+            }else if($tipoCadastro == 2){
+              $query ="INSERT INTO responsavel (login, senha, nome, cpf, dataNasc, email, telefone, tipoTel, cep, logradouro, numero, complemento, bairro, cidade, estado)
+              VALUES ('$login','$senha', '$nome', '$cpf', '$dataNasc', '$email', '$telefone', '$tipoTel', '$cep', '$logradouro', '$logradouro', '$numero', '$complemento', '$bairro', '$cidade', '$estado')";
+              $insert = mysql_query($query,$connect);
+            }
     
             if($insert){
     
@@ -57,13 +60,11 @@
     
             }else{
     
-              echo"<script language='javascript' type='text/javascript'>alert('Não foi possível cadastrar esse usuário');window.location.href='cadastro.html'</script>";
+              //echo"<script language='javascript' type='text/javascript'>alert('Não foi possível cadastrar esse usuário');window.location.href='login.html'</script>";
     
             }
     
           }
-    
-        }
     
     ?>
 
