@@ -1,7 +1,23 @@
 <?php
 
+    $tipoCadastro = $_POST['tipoCadastro'];
     $login = $_POST['login'];
     $senha = $_POST['senha'];
+    $nome = $_POST['nome'];
+    $razaoSocial = $_POST['razaoSocial'];
+    $cpf = $_POST['cpf'];
+    $cnpj = $_POST ['cnpj'];
+    $dataNasc = $_POST['dataNasc'];
+    $telefone = $_POST['telefone'];
+    $tipoTel = $_POST['tipoTel'];
+    $email = $_POST['email'];
+    $logradouro = $_POST['logradouro'];
+    $cidade = $_POST['cidade'];
+    $complemento = $_POST['complemento'];
+    $numero = $_POST['numero'];
+    $cep = $_POST['cep'];
+    $bairro = $_POST['bairro'];
+    $estado = $_POST['estado'];
 
     $connect = mysql_connect('localhost','root','usbw');
 
