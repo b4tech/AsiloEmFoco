@@ -16,6 +16,9 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
 /*!40101 SET NAMES utf8 */;
 
+CREATE DATABASE asiloemfoco;
+USE asiloemfoco;
+
 --
 -- Base de Dados: `asiloemfoco`
 --
@@ -111,7 +114,7 @@ CREATE TABLE IF NOT EXISTS `endereco` (
 CREATE TABLE IF NOT EXISTS `estado` (
   `id` int(9) NOT NULL AUTO_INCREMENT,
   `sigla` varchar(2) NOT NULL,
-  `nome` varchar(18) NOT NULL,
+  `nome` varchar(20) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
@@ -292,3 +295,31 @@ ALTER TABLE `responsavel`
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
+insert into `estado` (`sigla`, `nome`) values ('AC', 'Acre');
+insert into `estado` (`sigla`, `nome`) values ('AL', 'Alagoas');
+insert into `estado` (`sigla`, `nome`) values ('AP', 'Amapá');
+insert into `estado` (`sigla`, `nome`) values ('AM', 'Amazonas');
+insert into `estado` (`sigla`, `nome`) values ('BA', 'Bahia');
+insert into `estado` (`sigla`, `nome`) values ('CE', 'Ceará');
+insert into `estado` (`sigla`, `nome`) values ('DF', 'Distrito Federal');
+insert into `estado` (`sigla`, `nome`) values ('ES', 'Espírito Santo');
+insert into `estado` (`sigla`, `nome`) values ('GO', 'Goiás');
+insert into `estado` (`sigla`, `nome`) values ('MA', 'Maranhão');
+insert into `estado` (`sigla`, `nome`) values ('MT', 'Mato Grosso');
+insert into `estado` (`sigla`, `nome`) values ('MS', 'Mato Grosso do Sul');
+insert into `estado` (`sigla`, `nome`) values ('MG', 'Minas Gerais');
+insert into `estado` (`sigla`, `nome`) values ('PA', 'Pará');
+insert into `estado` (`sigla`, `nome`) values ('PB', 'Paraína');
+insert into `estado` (`sigla`, `nome`) values ('PR', 'Paraná');
+insert into `estado` (`sigla`, `nome`) values ('PE', 'Pernambuco');
+insert into `estado` (`sigla`, `nome`) values ('PI', 'Piauí');
+insert into `estado` (`sigla`, `nome`) values ('RJ', 'Rio de Janeiro');
+insert into `estado` (`sigla`, `nome`) values ('RN', 'Rio Grande do Norte');
+insert into `estado` (`sigla`, `nome`) values ('RS', 'Rio Grande do Sul');
+insert into `estado` (`sigla`, `nome`) values ('RO', 'Rondônia');
+insert into `estado` (`sigla`, `nome`) values ('RR', 'Roraima');
+insert into `estado` (`sigla`, `nome`) values ('SC', 'Santa Catarina');
+insert into `estado` (`sigla`, `nome`) values ('SP', 'São Paulo');
+insert into `estado` (`sigla`, `nome`) values ('SE', 'Sergipe');
+insert into `estado` (`sigla`, `nome`) values ('TO', 'Tocatins');

@@ -149,3 +149,32 @@ ADD FOREIGN KEY (`idosoId`) REFERENCES idoso(id) ON DELETE CASCADE,
 ADD FOREIGN KEY (`enderecoId`) REFERENCES endereco(id) ON DELETE CASCADE,
 ADD FOREIGN KEY (`asiloId`) REFERENCES asilo(id) ON DELETE CASCADE,
 ADD FOREIGN KEY (`loginId`) REFERENCES login(id) ON DELETE CASCADE;
+
+
+insert into `estado` (`sigla`, `nome`) values ('AC', 'Acre');
+insert into `estado` (`sigla`, `nome`) values ('AL', 'Alagoas');
+insert into `estado` (`sigla`, `nome`) values ('AP', 'Amapá');
+insert into `estado` (`sigla`, `nome`) values ('AM', 'Amazonas');
+insert into `estado` (`sigla`, `nome`) values ('BA', 'Bahia');
+insert into `estado` (`sigla`, `nome`) values ('CE', 'Ceará');
+insert into `estado` (`sigla`, `nome`) values ('DF', 'Distrito Federal');
+insert into `estado` (`sigla`, `nome`) values ('ES', 'Espírito Santo');
+insert into `estado` (`sigla`, `nome`) values ('GO', 'Goiás');
+insert into `estado` (`sigla`, `nome`) values ('MA', 'Maranhão');
+insert into `estado` (`sigla`, `nome`) values ('MT', 'Mato Grosso');
+insert into `estado` (`sigla`, `nome`) values ('MS', 'Mato Grosso do Sul');
+insert into `estado` (`sigla`, `nome`) values ('MG', 'Minas Gerais');
+insert into `estado` (`sigla`, `nome`) values ('PA', 'Pará');
+insert into `estado` (`sigla`, `nome`) values ('PB', 'Paraína');
+insert into `estado` (`sigla`, `nome`) values ('PR', 'Paraná');
+insert into `estado` (`sigla`, `nome`) values ('PE', 'Pernambuco');
+insert into `estado` (`sigla`, `nome`) values ('PI', 'Piauí');
+insert into `estado` (`sigla`, `nome`) values ('RJ', 'Rio de Janeiro');
+insert into `estado` (`sigla`, `nome`) values ('RN', 'Rio Grande do Norte');
+insert into `estado` (`sigla`, `nome`) values ('RS', 'Rio Grande do Sul');
+insert into `estado` (`sigla`, `nome`) values ('RO', 'Rondônia');
+insert into `estado` (`sigla`, `nome`) values ('RR', 'Roraima');
+insert into `estado` (`sigla`, `nome`) values ('SC', 'Santa Catarina');
+insert into `estado` (`sigla`, `nome`) values ('SP', 'São Paulo');
+insert into `estado` (`sigla`, `nome`) values ('SE', 'Sergipe');
+insert into `estado` (`sigla`, `nome`) values ('TO', 'Tocatins');

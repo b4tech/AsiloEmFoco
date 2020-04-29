@@ -3,6 +3,7 @@
     $tipoCadastro = $_POST['tipoCadastro'];
     $login = $_POST['login'];
     $senha = $_POST['senha'];
+    $confirmaSenha = $_POST['confirmaSenha'];
     $nome = $_POST['nome'];
     $razaoSocial = $_POST['razaoSocial'];
     $cpf = $_POST['cpf'];
@@ -19,7 +20,7 @@
     $bairro = $_POST['bairro'];
     $estado = $_POST['estado'];
 
-    $connect = mysql_connect('localhost','root','usbw');
+    $connect = mysql_connect('localhost','root','');
 
     $db = mysql_select_db('sistemadelogin');
 
