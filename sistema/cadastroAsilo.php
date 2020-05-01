@@ -59,18 +59,23 @@ $estadoSQL3->close();
 $ultimoIdEndereco = mysqli_insert_id($connect);
 
 $estadoSQL4 = $connect->prepare(
-  "INSERT INTO asilo (razaoSocial, contatoId, cnpj, enderecoId, responsavelId, loginId, email) VALUES ('$razaoSocial', '$ultimoIdContato', '$cnpj', '$ultimoIdEndereco', 'null', '$ultimoIdLogin', '$email');"
+  "INSERT INTO `asilo`(`razaoSocial`, `contatoId`, `cnpj`, `email`, `enderecoId`, `responsavelId`, `loginId`) VALUES ('$razaoSocial', '$ultimoIdContato', '$cnpj', '$email', '$ultimoIdEndereco', 'null', '$ultimoIdLogin');"
 );
 
 $estadoSQL4->execute();
 
 $estadoSQL4->close();
 
-// $estadoSQL = $connect->prepare("INSERT INTO login (username, password, confirmPassword) VALUES ('$login', '$senha', '$confirmaSenha');
-// INSERT INTO contato (tipo, telefone) VALUES ('$tipoTel', '$telefone');
-// INSERT INTO endereco (cidade, logradouro, numero, cep, bairro, complemento, estadoId) VALUES ('$cidade', '$logradouro', '$numero', '$cep', '$bairro', '$complemento', '$estado');
-// INSERT INTO asilo (razaoSocial, contatoId, cnpj, enderecoId, responsavelId, loginId, email) VALUES ('$razaoSocial', '$ultimoIdContato', '$cnpj', '$ultimoIdEndereco', 'null', '$ultimoIdLogin', '$email');
-// ");
+// if($estadoSQL4 = $connect->prepare(
+//   "INSERT INTO asilo (razaoSocial, contatoId, cnpj, email, enderecoId, responsavelId, loginId) VALUES ('$razaoSocial', '$ultimoIdContato', '$cnpj', '$email', '$ultimoIdEndereco', 'null', '$ultimoIdLogin');"
+// )){
+//   $estadoSQL4->execute();
+  
+// } else {
+//   echo "$connect->errno, $connect->error";
+//   die;
+// }
+// $estadoSQL4->close();
 
 if ($estadoSQL4) {
   //echo "<script>alert('Usuario cadastrado com sucesso')</script>";
@@ -79,31 +84,3 @@ if ($estadoSQL4) {
 
   echo "<script language='javascript' type='text/javascript'>alert('Não foi possível cadastrar esse usuário');window.location.href='login.html'</script>";
 }
-
-  // $query = "
-  //   INSERT INTO login (username, password, confirmPassword)
-  //   VALUES ('$login', '$senha', '$confirmaSenha');
-  //   $ultimoIdLogin = mysql_insert_id($connect);
-
-  //   INSERT INTO contato (tipo, telefone)
-  //   VALUES ('$tipoTel', '$telefone');
-  //   $ultimoIdContato = mysql_insert_id($connect);
-
-  //   INSERT INTO endereco (cidade, logradouro, numero, cep, bairro, complemento, estadoId)
-  //   VALUES ('$cidade', '$logradouro', '$numero', '$cep', '$bairro', '$complemento', '$estado');
-  //   $ultimoIdEndereco = mysql_insert_id($connect);
-
-  //   INSERT INTO asilo (razaoSocial, contatoId, cnpj, enderecoId, responsavelId, loginId, email)
-  //   VALUES ('$razaoSocial', '$ultimoIdContato', '$cnpj', '$ultimoIdEndereco', 'null', '$ultimoIdLogin', '$email');
-
-  // ";
-
-  //$insert = mysql_query($query, $connect);
-
-  // if ($insert) {
-  //   echo "<script language='javascript' type='text/javascript'>alert('Usuário cadastrado com sucesso!');window.location.href='login.html'</script>";
-  // } else {
-
-  //   echo "<script language='javascript' type='text/javascript'>alert('Não foi possível cadastrar esse usuário');window.location.href='login.html'</script>";
-  // }
-//}
