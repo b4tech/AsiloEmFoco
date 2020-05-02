@@ -17,70 +17,56 @@ $bairro = $_POST['bairro'];
 $estado = $_POST['estado'];
 
 $connect = new mysqli('127.0.0.1', 'root', '', 'asiloemfoco');
-$query_select = "SELECT cnpj FROM asilo WHERE cnpj='$cnpj'";
-// $select = mysql_query($query_select, $connect);
-// $array = mysql_fetch_array($select);
-// $logarray = $array['cnpj'];
+$query_select = $connect->query("SELECT cnpj FROM asilo WHERE cnpj='$cnpj'");
+$row = $query_select->fetch_row();
 
-// if ($logarray == $cnpj && $cnpj != null) {
-//   echo "<script language='javascript' type='text/javascript'>alert('Esse login já existe');window.location.href='cadastro.html';</script>";
-//   die();
-// } else {
-
-//Prepara o comando SQL
-$estadoSQL1 = $connect->prepare(
-  "INSERT INTO login (username, password, confirmPassword) VALUES ('$login', '$senha', '$confirmaSenha');"                                  
-);
-
-$estadoSQL1->execute();
-
-$estadoSQL1->close();
-
-$ultimoIdLogin = mysqli_insert_id($connect);
-
-$estadoSQL2 = $connect->prepare(
-  "INSERT INTO contato (tipo, telefone) VALUES ('$tipoTel', '$telefone');"                                  
-);
-
-$estadoSQL2->execute();
-
-$estadoSQL2->close();
-
-$ultimoIdContato = mysqli_insert_id($connect);
-
-$estadoSQL3 = $connect->prepare(
-  "INSERT INTO endereco (cidade, logradouro, numero, cep, bairro, complemento, estadoId) VALUES ('$cidade', '$logradouro', '$numero', '$cep', '$bairro', '$complemento', '$estado');"
-);
-
-$estadoSQL3->execute();
-
-$estadoSQL3->close();
-
-$ultimoIdEndereco = mysqli_insert_id($connect);
-
-$estadoSQL4 = $connect->prepare(
-  "INSERT INTO `asilo`(`razaoSocial`, `contatoId`, `cnpj`, `email`, `enderecoId`, `responsavelId`, `loginId`) VALUES ('$razaoSocial', '$ultimoIdContato', '$cnpj', '$email', '$ultimoIdEndereco', 'null', '$ultimoIdLogin');"
-);
-
-$estadoSQL4->execute();
-
-$estadoSQL4->close();
-
-// if($estadoSQL4 = $connect->prepare(
-//   "INSERT INTO asilo (razaoSocial, contatoId, cnpj, email, enderecoId, responsavelId, loginId) VALUES ('$razaoSocial', '$ultimoIdContato', '$cnpj', '$email', '$ultimoIdEndereco', 'null', '$ultimoIdLogin');"
-// )){
-//   $estadoSQL4->execute();
-  
-// } else {
-//   echo "$connect->errno, $connect->error";
-//   die;
-// }
-// $estadoSQL4->close();
-
-if ($estadoSQL4) {
-  //echo "<script>alert('Usuario cadastrado com sucesso')</script>";
-  echo "<script language='javascript' type='text/javascript'>alert('Usuário cadastrado com sucesso!');window.location.href='login.html'</script>";
+if ($row[0] > 0) {
+  echo "<script language='javascript' type='text/javascript'>alert('Esse CNPJ já está cadastrado.');window.location.href='login.html';</script>";
+  die();
 } else {
 
-  echo "<script language='javascript' type='text/javascript'>alert('Não foi possível cadastrar esse usuário');window.location.href='login.html'</script>";
+  //Prepara o comando SQL
+  $estadoSQL1 = $connect->prepare(
+    "INSERT INTO login (username, password, confirmPassword) VALUES ('$login', '$senha', '$confirmaSenha');"
+  );
+
+  $estadoSQL1->execute();
+
+  $estadoSQL1->close();
+
+  $ultimoIdLogin = mysqli_insert_id($connect);
+
+  $estadoSQL2 = $connect->prepare(
+    "INSERT INTO contato (tipo, telefone) VALUES ('$tipoTel', '$telefone');"
+  );
+
+  $estadoSQL2->execute();
+
+  $estadoSQL2->close();
+
+  $ultimoIdContato = mysqli_insert_id($connect);
+
+  $estadoSQL3 = $connect->prepare(
+    "INSERT INTO endereco (cidade, logradouro, numero, cep, bairro, complemento, estadoId) VALUES ('$cidade', '$logradouro', '$numero', '$cep', '$bairro', '$complemento', '$estado');"
+  );
+
+  $estadoSQL3->execute();
+
+  $estadoSQL3->close();
+
+  $ultimoIdEndereco = mysqli_insert_id($connect);
+
+  $estadoSQL4 = $connect->prepare(
+    "INSERT INTO `asilo`(`razaoSocial`, `contatoId`, `cnpj`, `email`, `enderecoId`, `responsavelId`, `loginId`) VALUES ('$razaoSocial', '$ultimoIdContato', '$cnpj', '$email', '$ultimoIdEndereco', null, '$ultimoIdLogin');"
+  );
+
+  $estadoSQL4->execute();
+
+  $estadoSQL4->close();
+
+  if ($estadoSQL4) {
+    echo "<script language='javascript' type='text/javascript'>alert('Usuário cadastrado com sucesso!');window.location.href='login.html'</script>";
+  } else {
+    echo "<script language='javascript' type='text/javascript'>alert('Não foi possível cadastrar esse usuário');window.location.href='login.html'</script>";
+  }
 }

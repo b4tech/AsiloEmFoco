@@ -41,8 +41,9 @@ CREATE TABLE IF NOT EXISTS `asilo` (
     `contatoId` int(9) NOT NULL,
     `cnpj`varchar(14) NOT NULL,
     `enderecoId` int(8)  NOT NULL,
-    `responsavelId` int(8)  NOT NULL,
+    `responsavelId` int(8),
     `loginId` int(8)  NOT NULL,
+    `email` varchar(50) NOT NULL,
     PRIMARY KEY (`id`)
 );
 
