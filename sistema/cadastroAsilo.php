@@ -65,8 +65,8 @@ if ($row[0] > 0) {
   $estadoSQL4->close();
 
   if ($estadoSQL4) {
-    echo "<script language='javascript' type='text/javascript'>alert('Usuário cadastrado com sucesso!');window.location.href='login.html'</script>";
+    echo "<script language='javascript' type='text/javascript'>alert('Asilo cadastrado com sucesso!');window.location.href='login.html'</script>";
   } else {
-    echo "<script language='javascript' type='text/javascript'>alert('Não foi possível cadastrar esse usuário');window.location.href='login.html'</script>";
+    echo "<script language='javascript' type='text/javascript'>alert('Não foi possível cadastrar esse asilo');window.location.href='login.html'</script>";
   }
 }

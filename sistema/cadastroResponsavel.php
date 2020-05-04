@@ -1,13 +1,10 @@
 <?php
 
-    $tipoCadastro = $_POST['tipoCadastro'];
     $login = $_POST['login'];
     $senha = $_POST['senha'];
     $confirmaSenha = $_POST['confirmaSenha'];
     $nome = $_POST['nome'];
-    $razaoSocial = $_POST['razaoSocial'];
     $cpf = $_POST['cpf'];
-    $cnpj = $_POST ['cnpj'];
     $dataNasc = $_POST['dataNasc'];
     $telefone = $_POST['telefone'];
     $tipoTel = $_POST['tipoTel'];
@@ -20,53 +17,60 @@
     $bairro = $_POST['bairro'];
     $estado = $_POST['estado'];
 
-    $connect = mysql_connect('localhost','root','');
+    $connect = new mysqli('127.0.0.1', 'root', '', 'asiloemfoco');
+    $query_select = $connect->query("SELECT cpf FROM responsavel WHERE cpf='$cpf'");
+    $row = $query_select->fetch_row();
+    
+    if ($row[0] > 0) {
+      echo "<script language='javascript' type='text/javascript'>alert('Esse CPF já está cadastrado.');window.location.href='login.html';</script>";
+      die();
 
-    $db = mysql_select_db('sistemadelogin');
+    } else {
 
-    if ($tipoCadastro == 1){
-      $query_select = "SELECT cnpj FROM asilo WHERE cnpj='$cnpj'";
-      $select = mysql_query($query_select, $connect);
-      $array = mysql_fetch_array($select);
-      $logarray = $array['cnpj'];
-    } else if ($tipoCadastro == 2){
-      $query_select = "SELECT cpf FROM responsavel WHERE cpf='$cpf'";
-      $select = mysql_query($query_select, $connect);
-      $array = mysql_fetch_array($select);
-      $logarray = $array['cpf'];
+      //Prepara o comando SQL
+      $estadoSQL1 = $connect->prepare(
+        "INSERT INTO login (username, password, confirmPassword) VALUES ('$login', '$senha', '$confirmaSenha');"
+      );
+    
+      $estadoSQL1->execute();
+    
+      $estadoSQL1->close();
+    
+      $ultimoIdLogin = mysqli_insert_id($connect);
+    
+      $estadoSQL2 = $connect->prepare(
+        "INSERT INTO contato (tipo, telefone) VALUES ('$tipoTel', '$telefone');"
+      );
+    
+      $estadoSQL2->execute();
+    
+      $estadoSQL2->close();
+    
+      $ultimoIdContato = mysqli_insert_id($connect);
+    
+      $estadoSQL3 = $connect->prepare(
+        "INSERT INTO endereco (cidade, logradouro, numero, cep, bairro, complemento, estadoId) VALUES ('$cidade', '$logradouro', '$numero', '$cep', '$bairro', '$complemento', '$estado');"
+      );
+    
+      $estadoSQL3->execute();
+    
+      $estadoSQL3->close();
+    
+      $ultimoIdEndereco = mysqli_insert_id($connect);
+    
+      $estadoSQL4 = $connect->prepare(
+        "INSERT INTO `responsavel`(`nome`, `cpf`, `email`, `dataNasc`, `contatoId`, `idosoId`, `enderecoId`, `asiloId`, `loginId`) VALUES ('$nome', '$cpf', '$email', '$dataNasc', '$ultimoIdContato', null, '$ultimoIdEndereco',null, '$ultimoIdLogin');"
+      );
+    
+      $estadoSQL4->execute();
+    
+      $estadoSQL4->close();
+    
+      if ($estadoSQL4) {
+        echo "<script language='javascript' type='text/javascript'>alert('Usuário cadastrado com sucesso!');window.location.href='login.html'</script>";
+      } else {
+        echo "<script language='javascript' type='text/javascript'>alert('Não foi possível cadastrar esse usuário');window.location.href='login.html'</script>";
+      }
     }
-
     
-          if($logarray == $cnpj && $tipoCadastro == 1 || $logarray == $cpf && $tipoCadastro == 2){
-    
-            echo"<script language='javascript' type='text/javascript'>alert('Esse login já existe');window.location.href='cadastro.html';</script>";
-    
-            die();
-
-          }else{
-
-            if($tipoCadastro == 1){
-              $query ="INSERT INTO asilo (login, senha, razaoSocial, cnpj, email, telefone, tipoTel, cep, logradouro, numero, complemento, bairro, cidade, estado)
-              VALUES ('$login','$senha', '$razaoSocial', '$cnpj', '$email', '$telefone', '$tipoTel', '$cep', '$logradouro', '$logradouro', '$numero', '$complemento', '$bairro', '$cidade', '$estado')";
-              $insert = mysql_query($query,$connect);
-            }else if($tipoCadastro == 2){
-              $query ="INSERT INTO responsavel (login, senha, nome, cpf, dataNasc, email, telefone, tipoTel, cep, logradouro, numero, complemento, bairro, cidade, estado)
-              VALUES ('$login','$senha', '$nome', '$cpf', '$dataNasc', '$email', '$telefone', '$tipoTel', '$cep', '$logradouro', '$logradouro', '$numero', '$complemento', '$bairro', '$cidade', '$estado')";
-              $insert = mysql_query($query,$connect);
-            }
-    
-            if($insert){
-    
-              echo"<script language='javascript' type='text/javascript'>alert('Usuário cadastrado com sucesso!');window.location.href='login.html'</script>";
-    
-            }else{
-    
-              //echo"<script language='javascript' type='text/javascript'>alert('Não foi possível cadastrar esse usuário');window.location.href='login.html'</script>";
-    
-            }
-    
-          }
-    
-    ?>
-
-?>
+  ?>
