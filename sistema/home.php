@@ -15,9 +15,12 @@
 
     if (isset($login_cookie)) {
 
-        echo "Bem-Vindo, $login_cookie <br>";
+        // echo "Bem-Vindo, $login_cookie <br>";
 
-        echo "Essas informações <font color='red'>PODEM</font> ser acessadas por você";
+        // echo "Essas informações <font color='red'>PODEM</font> ser acessadas por você";
+
+        header("Location:start/index.html");
+
     } else {
 
         echo "Bem-Vindo, convidado <br>";
