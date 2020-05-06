@@ -19,7 +19,7 @@
 
         // echo "Essas informações <font color='red'>PODEM</font> ser acessadas por você";
 
-        header("Location:start/index.html");
+        header("Location:start/index.php");
 
     } else {
 
@@ -27,7 +27,7 @@
 
         echo "Essas informações <font color='red'>NÃO PODEM</font> ser acessadas por você";
 
-        echo "<br><a href='login.html'>Faça Login</a> Para ler o conteúdo";
+        echo "<br><a href='login.php'>Faça Login</a> Para ler o conteúdo";
     }
     ?>
 </body>
