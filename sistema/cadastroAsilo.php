@@ -27,7 +27,7 @@ if ($row[0] > 0) {
 
   //Prepara o comando SQL
   $estadoSQL1 = $connect->prepare(
-    "INSERT INTO login (username, password, confirmPassword) VALUES ('$login', '$senha', '$confirmaSenha');"
+    "INSERT INTO login (username, password, confirmPassword, perfil) VALUES ('$login', '$senha', '$confirmaSenha', '1');"
   );
 
   $estadoSQL1->execute();
