@@ -1,4 +1,4 @@
 <?php
-    setcookie('login', '', '');
+    session_destroy();
     header ("location:../login.html");
 ?>
