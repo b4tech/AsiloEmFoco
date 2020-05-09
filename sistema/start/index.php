@@ -33,7 +33,7 @@
                 <h1 class="my-4"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></h1>
                 <h1>
                     <?php
-                        echo $_SESSION['id']." - ".$_SESSION['login'];
+                        echo $_SESSION['idLogin']." - ".$_SESSION['login'];
                         //echo $_SESSION['idAsilo']." - ".$_SESSION['razaoSocial'];
                     ?>
                 </h1>
