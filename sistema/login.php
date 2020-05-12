@@ -22,7 +22,7 @@ $arrayAsilo = mysqli_fetch_assoc($selectAsilo);
 
 // Select Responsalvel
 
-$selectResponsavel = mysqli_query($connect, "SELECT * FOM `responsavel`");
+$selectResponsavel = mysqli_query($connect, "SELECT * FROM `responsavel`");
 // Comando para criar matriz de dados de acordo com o select acima
 $arrayResponsavel = mysqli_fetch_assoc($selectLogin);
 
@@ -53,6 +53,7 @@ if (isset($entrar)) {
         // Tabela login
         $_SESSION['idLogin'] = $arrayLogin['idLogin'];
         $_SESSION['login'] = $arrayLogin["username"];
+        $_SESSION['senha'] = $arrayLogin["password"];
 
         // tabela Asilo
         $_SESSION['idAsilo'] = $arrayAsilo['idAsilo'];
@@ -66,6 +67,7 @@ if (isset($entrar)) {
         // Tabela login
         $_SESSION['idLogin'] = $arrayLogin['idLogin'];
         $_SESSION['login'] = $arrayLogin["username"];
+        $_SESSION['senha'] = $arrayLogin["password"];
 
         // Tabela Responsavel
         $_SESSION['idResponsavel'] = $arrayResponsavel['idResponsavel'];
@@ -94,8 +96,9 @@ if (isset($entrar)) {
         // Tabela login
         $_SESSION['idLogin'] = $arrayLogin['idLogin'];
         $_SESSION['login'] = $arrayLogin["username"];
+        $_SESSION['senha'] = $arrayLogin["password"];
 
-        // Tabele funcionario
+        // Tabela funcionario
         $_SESSION['idFuncionario'] = $arrayFuncionario['idFuncionario'];
         $_SESSION['nome'] = $arrayFuncionario['nome'];
         $_SESSION['cpf'] = $arrayFuncionario['cpf'];
