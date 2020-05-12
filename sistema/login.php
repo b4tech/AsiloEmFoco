@@ -12,7 +12,7 @@ $selectLogin = mysqli_query($connect, "SELECT * FROM `login` WHERE username='$lo
 // Comando para criar matriz de dados de acordo com o select acima
 $arrayLogin = mysqli_fetch_assoc($selectLogin);
 $perfil = $arrayLogin['perfil'];
-
+$auxIdLogin = $arrayLogin['idLogin'];
 // Select Asilo
 
 $selectAsilo = mysqli_query($connect, "SELECT * FROM `asilo` WHERE idAsilo=$auxIdLogin");
