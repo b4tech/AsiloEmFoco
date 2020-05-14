@@ -52,7 +52,7 @@
                             <label for="cep">CEP: </label><input type="text" name="cep" id="cep" required oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" class="form-control" value=<?php echo $_SESSION['cep']; ?>><br />
                             <label for="logradouro">Logradouro: </label> <input type="text" name="logradouro" id="logradouro" required class="form-control" value=<?php echo $_SESSION['logradouro']; ?>><br />
                             <label for="numero">Número: </label> <input type="text" name="numero" id="numero" required oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" class="form-control" value=<?php echo $_SESSION['numero']; ?>><br />
-                            <label for="complemento">Complemento: </label> <input type="text" name="complemento" id="complemento" class="form-control"><br />
+                            <label for="complemento">Complemento: </label> <input type="text" name="complemento" id="complemento" class="form-control"><?php echo $_SESSION['complemento']; ?><br />
                             <label for="bairro">Bairro: </label> <input type="text" name="bairro" id="bairro" required class="form-control" value=<?php echo $_SESSION['bairro']; ?>><br />
                             <label for="cidade">Cidade: </label> <input type="text" name="cidade" name="cidade" required class="form-control" value=<?php echo $_SESSION['cidade']; ?>><br />
                             <label for="estado">Estado:</label>
