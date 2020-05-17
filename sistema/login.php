@@ -13,17 +13,6 @@ $arrayLogin = mysqli_fetch_assoc($selectLogin);
 $perfil = $arrayLogin['perfil'];
 $auxIdLogin = $arrayLogin['idLogin'];
 
-
-
-
-
-
-
-
-
-
-
-
 if (isset($entrar)) {
 
   if (mysqli_num_rows($selectLogin) <= 0) {
@@ -33,16 +22,17 @@ if (isset($entrar)) {
   } else {
 
     session_start();
- 
+
     switch ($perfil) {
       case '1':
         // Tabela login
         $_SESSION['idLogin'] = $arrayLogin['idLogin'];
         $_SESSION['login'] = $arrayLogin["username"];
         $_SESSION['senha'] = $arrayLogin["password"];
+        $_SESSION['perfil'] = $arrayLogin["perfil"];
 
         // Select Asilo
-        $selectAsilo = mysqli_query($connect, "SELECT * FROM `asilo` WHERE idAsilo=$auxIdLogin");
+        $selectAsilo = mysqli_query($connect, "SELECT * FROM `asilo` WHERE loginId=$auxIdLogin");
         // Comando para criar matriz de dados de acordo com o select acima
         $arrayAsilo = mysqli_fetch_assoc($selectAsilo);
         $auxIdContato = $arrayAsilo['contatoId'];
@@ -60,7 +50,7 @@ if (isset($entrar)) {
         $auxIdEstado = $arrayEndereco['estadoId'];
 
         // select estado
-        $selectEstado = mysqli_query($connect ,"SELECT * FROM `estado` WHERE idEstado = $auxIdEstado");
+        $selectEstado = mysqli_query($connect, "SELECT * FROM `estado` WHERE idEstado = $auxIdEstado");
         // comando para criar matriz de dados de acordo com o select acima
         $arrayEstado = mysqli_fetch_assoc($selectEstado);
 
@@ -96,19 +86,22 @@ if (isset($entrar)) {
         // echo $_SESSION['estado'] ."<br />";
         // echo $_SESSION['tipoTel'] ."<br />";
         // echo $_SESSION['telefone'] ."<br />";
+        
+        //print_r($_SESSION);
 
         header("Location:start/index.php");
 
         break;
-      
+
       case '2':
         // Tabela login
         $_SESSION['idLogin'] = $arrayLogin['idLogin'];
         $_SESSION['login'] = $arrayLogin["username"];
         $_SESSION['senha'] = $arrayLogin["password"];
+        $_SESSION['perfil'] = $arrayLogin["perfil"];
 
         // Select Responsalvel
-        $selectResponsavel = mysqli_query($connect, "SELECT * FROM `responsavel`");
+        $selectResponsavel = mysqli_query($connect, "SELECT * FROM `responsavel` WHERE loginId=$auxIdLogin");
         // Comando para criar matriz de dados de acordo com o select acima
         $arrayResponsavel = mysqli_fetch_assoc($selectLogin);
         $auxIdContato = $arrayResponsavel['contatoId'];
@@ -126,7 +119,7 @@ if (isset($entrar)) {
         $auxIdEstado = $arrayEndereco['estadoId'];
 
         // select estado
-        $selectEstado = mysqli_query($connect ,"SELECT * FROM `estado` WHERE idEstado = $auxIdEstado");
+        $selectEstado = mysqli_query($connect, "SELECT * FROM `estado` WHERE idEstado = $auxIdEstado");
         // comando para criar matriz de dados de acordo com o select acima
         $arrayEstado = mysqli_fetch_assoc($selectEstado);
 
@@ -158,7 +151,7 @@ if (isset($entrar)) {
         $selectIdoso = mysqli_query($connect, "SELECT * FROM `idoso`");
         // Comando para criar matriz de dados de acordo com o select acima
         $arrayIdoso = mysqli_fetch_assoc($selectIdoso);
-        
+
         // Tabela Idoso
         $_SESSION['idIdoso'] = $arrayIdoso['idIdoso'];
         $_SESSION['dataNasc'] = $arrayIdoso['dataNasc'];
@@ -175,9 +168,10 @@ if (isset($entrar)) {
         $_SESSION['idLogin'] = $arrayLogin['idLogin'];
         $_SESSION['login'] = $arrayLogin["username"];
         $_SESSION['senha'] = $arrayLogin["password"];
+        $_SESSION['perfil'] = $arrayLogin["perfil"];
 
         // Tabela Funcionario
-        $selectFuncionario = mysqli_query($connect, "SELECT * FROM `funcionario`");
+        $selectFuncionario = mysqli_query($connect, "SELECT * FROM `funcionario` WHERE loginId=$auxIdLogin");
         // Comando para criar matriz de dados de acordo com o select acima
         $arrayFuncionario = mysqli_fetch_assoc($selectFuncionario);
         $auxIdContato = $arrayFuncionario['contatoId'];
@@ -195,7 +189,7 @@ if (isset($entrar)) {
         $auxIdEstado = $arrayEndereco['estadoId'];
 
         // select estado
-        $selectEstado = mysqli_query($connect ,"SELECT * FROM `estado` WHERE idEstado = $auxIdEstado");
+        $selectEstado = mysqli_query($connect, "SELECT * FROM `estado` WHERE idEstado = $auxIdEstado");
         // comando para criar matriz de dados de acordo com o select acima
         $arrayEstado = mysqli_fetch_assoc($selectEstado);
 
@@ -230,17 +224,6 @@ if (isset($entrar)) {
         header("Location:start/index.php");
 
         break;
-        
     }
-
-    
-
-    
-
-    
-
-    
-
-    
   }
 }
