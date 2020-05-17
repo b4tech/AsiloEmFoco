@@ -92,34 +92,34 @@
                             <label for="bairro">Bairro: </label> <input type="text" name="bairroAsilo" id="bairroAsilo" required class="form-control" value="<?php echo $_SESSION['bairro']; ?>"><br />
                             <label for="cidade">Cidade: </label> <input type="text" name="cidadeAsilo" name="cidadeAsilo" required class="form-control" value="<?php echo $_SESSION['cidade']; ?>"><br />
                             <label for="estado">Estado:</label>
-                            <select name="estadoAsilo" id="estadoAsilo" class="form-control">
-                                <option value="1">Acre</option>
-                                <option value="2">Alagoas</option>
-                                <option value="3">Amapá</option>
-                                <option value="4">Amazonas</option>
-                                <option value="5">Bahia</option>
-                                <option value="6">Ceará</option>
-                                <option value="7">Distrito Federal</option>
-                                <option value="8">Espírito Santo</option>
-                                <option value="9">Goiás</option>
-                                <option value="10">Maranhão</option>
-                                <option value="11">Mato Grosso</option>
-                                <option value="12">Mato Grosso do Sul</option>
-                                <option value="13">Minas Gerais</option>
-                                <option value="14">Pará</option>
-                                <option value="15">Paraíba</option>
-                                <option value="16">Paraná</option>
-                                <option value="17">Pernambuco</option>
-                                <option value="18">Piauí</option>
-                                <option value="19">Rio de Janeiro</option>
-                                <option value="20">Rio Grande do Norte</option>
-                                <option value="21">Rio Grande do Sul</option>
-                                <option value="22">Rondônia</option>
-                                <option value="23">Roraima</option>
-                                <option value="24">Santa Catarina</option>
-                                <option value="25">São Paulo</option>
-                                <option value="26">Sergipe</option>
-                                <option value="27">Tocantins</option>
+                            <select name="estadoResponsavel" id="estadoResponsavel" class="form-control">
+                                <option value="1" <?php echo $_SESSION['estado'] == 'Acre' ? 'selected' : ''; ?>>Acre</option>
+                                <option value="2" <?php echo $_SESSION['estado'] == 'Alagoas' ? 'selected' : ''; ?>>Alagoas</option>
+                                <option value="3" <?php echo $_SESSION['estado'] == 'Amapá' ? 'selected' : ''; ?>>Amapá</option>
+                                <option value="4" <?php echo $_SESSION['estado'] == 'Amazonas' ? 'selected' : ''; ?>>Amazonas</option>
+                                <option value="5" <?php echo $_SESSION['estado'] == 'Bahia' ? 'selected' : ''; ?>>Bahia</option>
+                                <option value="6" <?php echo $_SESSION['estado'] == 'Ceará' ? 'selected' : ''; ?>>Ceará</option>
+                                <option value="7" <?php echo $_SESSION['estado'] == 'Destrito Federal' ? 'selected' : ''; ?>>Distrito Federal</option>
+                                <option value="8" <?php echo $_SESSION['estado'] == 'Espírito Santo' ? 'selected' : ''; ?>>Espírito Santo</option>
+                                <option value="9" <?php echo $_SESSION['estado'] == 'Goiás' ? 'selected' : ''; ?>>Goiás</option>
+                                <option value="10" <?php echo $_SESSION['estado'] == 'Maranhão' ? 'selected' : ''; ?>>Maranhão</option>
+                                <option value="11" <?php echo $_SESSION['estado'] == 'Mato Grosso' ? 'selected' : ''; ?>>Mato Grosso</option>
+                                <option value="12" <?php echo $_SESSION['estado'] == 'Mato Grosso do Sul' ? 'selected' : ''; ?>>Mato Grosso do Sul</option>
+                                <option value="13" <?php echo $_SESSION['estado'] == 'Minas Gerais' ? 'selected' : ''; ?>>Minas Gerais</option>
+                                <option value="14" <?php echo $_SESSION['estado'] == 'Pará' ? 'selected' : ''; ?>>Pará</option>
+                                <option value="15" <?php echo $_SESSION['estado'] == 'Paraíba' ? 'selected' : ''; ?>>Paraíba</option>
+                                <option value="16" <?php echo $_SESSION['estado'] == 'Paraná' ? 'selected' : ''; ?>>Paraná</option>
+                                <option value="17" <?php echo $_SESSION['estado'] == 'Pernambuco' ? 'selected' : ''; ?>>Pernambuco</option>
+                                <option value="18" <?php echo $_SESSION['estado'] == 'Piauí' ? 'selected' : ''; ?>>Piauí</option>
+                                <option value="19" <?php echo $_SESSION['estado'] == 'Rio de Janeiro' ? 'selected' : ''; ?>>Rio de Janeiro</option>
+                                <option value="20" <?php echo $_SESSION['estado'] == 'Rio Grande do Norte' ? 'selected' : ''; ?>>Rio Grande do Norte</option>
+                                <option value="21" <?php echo $_SESSION['estado'] == 'Rio Grande do Sul' ? 'selected' : ''; ?>>Rio Grande do Sul</option>
+                                <option value="22" <?php echo $_SESSION['estado'] == 'Rondônia' ? 'selected' : ''; ?>>Rondônia</option>
+                                <option value="23" <?php echo $_SESSION['estado'] == 'Roraima' ? 'selected' : ''; ?>>Roraima</option>
+                                <option value="24" <?php echo $_SESSION['estado'] == 'Santa Catarina' ? 'selected' : ''; ?>>Santa Catarina</option>
+                                <option value="25" <?php echo $_SESSION['estado'] == 'São Paulo' ? 'selected' : ''; ?>>São Paulo</option>
+                                <option value="26" <?php echo $_SESSION['estado'] == 'Sergipe' ? 'selected' : ''; ?>>Sergipe</option>
+                                <option value="27" <?php echo $_SESSION['estado'] == 'Tocantins' ? 'selected' : ''; ?>>Tocantins</option>
                             </select><br />
                         </div>
                         <center>
@@ -139,8 +139,8 @@
                             <label for="senha">Senha atual:</label> <input type="text" id="senhaAtualResponsavel" name="senhaAtualResponsavel" required class="form-control" value="<?php echo $_SESSION['senha']; ?>"><br />
                             <label for="senha">Nova Senha:</label> <input type="password" id="novaSenhaResponsavel" name="novaSenhaResponsavel" required class="form-control"><br />
                             <label for="senha">Confirmar Nova Senha:</label> <input type="password" id="confirmaNovaSenhaResponsavel" name="confirmaNovaSenhaResponsavel" required class="form-control"><br />
-                            <label for="razaoSocial">Nome: </label><input type="text" name="nomeResponsavel" id="nomeResponsavel" required class="form-control" value="<?php echo $_SESSION['nome']; ?>"><br />
-                            <label for="cnpj">CPF:</label> <input type="text" name="cfpResponsavel" id="cpfResponsavel" required oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" class="form-control" value="<?php echo $_SESSION['cpf']; ?>"><br />
+                            <label for="razaoSocial">Nome: </label><input type="text" name="nomeResponsavel" id="nomeResponsavel" required class="form-control" value="<?php echo $_SESSION['nomeResp']; ?>"><br />
+                            <label for="cnpj">CPF:</label> <input type="text" name="cfpResponsavel" id="cpfResponsavel" required oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" class="form-control" value="<?php echo $_SESSION['cpfResp']; ?>"><br />
                             <label for="email">E-Mail:</label> <input type="email" name="emailResponsavel" id="emailResponsavel" required class="form-control" class="form-control" value="<?php echo $_SESSION['email']; ?>"><br />
                             <label for="telefone">Telefone:</label><input type="text" name="telefoneResponsavel" id="telefoneResponsavel" required oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" class="form-control" value="<?php echo $_SESSION['telefone']; ?>"><br />
                             <label for="telefone">Tipo do Telefone:</label>
@@ -157,33 +157,33 @@
                             <label for="cidade">Cidade: </label> <input type="text" name="cidadeResponsavel" name="cidadeResponsavel" required class="form-control" value="<?php echo $_SESSION['cidade']; ?>"><br />
                             <label for="estado">Estado:</label>
                             <select name="estadoResponsavel" id="estadoResponsavel" class="form-control">
-                                <option value="1">Acre</option>
-                                <option value="2">Alagoas</option>
-                                <option value="3">Amapá</option>
-                                <option value="4">Amazonas</option>
-                                <option value="5">Bahia</option>
-                                <option value="6">Ceará</option>
-                                <option value="7">Distrito Federal</option>
-                                <option value="8">Espírito Santo</option>
-                                <option value="9">Goiás</option>
-                                <option value="10">Maranhão</option>
-                                <option value="11">Mato Grosso</option>
-                                <option value="12">Mato Grosso do Sul</option>
-                                <option value="13">Minas Gerais</option>
-                                <option value="14">Pará</option>
-                                <option value="15">Paraíba</option>
-                                <option value="16">Paraná</option>
-                                <option value="17">Pernambuco</option>
-                                <option value="18">Piauí</option>
-                                <option value="19">Rio de Janeiro</option>
-                                <option value="20">Rio Grande do Norte</option>
-                                <option value="21">Rio Grande do Sul</option>
-                                <option value="22">Rondônia</option>
-                                <option value="23">Roraima</option>
-                                <option value="24">Santa Catarina</option>
-                                <option value="25">São Paulo</option>
-                                <option value="26">Sergipe</option>
-                                <option value="27">Tocantins</option>
+                                <option value="1" <?php echo $_SESSION['estado'] == 'Acre' ? 'selected' : ''; ?>>Acre</option>
+                                <option value="2" <?php echo $_SESSION['estado'] == 'Alagoas' ? 'selected' : ''; ?>>Alagoas</option>
+                                <option value="3" <?php echo $_SESSION['estado'] == 'Amapá' ? 'selected' : ''; ?>>Amapá</option>
+                                <option value="4" <?php echo $_SESSION['estado'] == 'Amazonas' ? 'selected' : ''; ?>>Amazonas</option>
+                                <option value="5" <?php echo $_SESSION['estado'] == 'Bahia' ? 'selected' : ''; ?>>Bahia</option>
+                                <option value="6" <?php echo $_SESSION['estado'] == 'Ceará' ? 'selected' : ''; ?>>Ceará</option>
+                                <option value="7" <?php echo $_SESSION['estado'] == 'Destrito Federal' ? 'selected' : ''; ?>>Distrito Federal</option>
+                                <option value="8" <?php echo $_SESSION['estado'] == 'Espírito Santo' ? 'selected' : ''; ?>>Espírito Santo</option>
+                                <option value="9" <?php echo $_SESSION['estado'] == 'Goiás' ? 'selected' : ''; ?>>Goiás</option>
+                                <option value="10" <?php echo $_SESSION['estado'] == 'Maranhão' ? 'selected' : ''; ?>>Maranhão</option>
+                                <option value="11" <?php echo $_SESSION['estado'] == 'Mato Grosso' ? 'selected' : ''; ?>>Mato Grosso</option>
+                                <option value="12" <?php echo $_SESSION['estado'] == 'Mato Grosso do Sul' ? 'selected' : ''; ?>>Mato Grosso do Sul</option>
+                                <option value="13" <?php echo $_SESSION['estado'] == 'Minas Gerais' ? 'selected' : ''; ?>>Minas Gerais</option>
+                                <option value="14" <?php echo $_SESSION['estado'] == 'Pará' ? 'selected' : ''; ?>>Pará</option>
+                                <option value="15" <?php echo $_SESSION['estado'] == 'Paraíba' ? 'selected' : ''; ?>>Paraíba</option>
+                                <option value="16" <?php echo $_SESSION['estado'] == 'Paraná' ? 'selected' : ''; ?>>Paraná</option>
+                                <option value="17" <?php echo $_SESSION['estado'] == 'Pernambuco' ? 'selected' : ''; ?>>Pernambuco</option>
+                                <option value="18" <?php echo $_SESSION['estado'] == 'Piauí' ? 'selected' : ''; ?>>Piauí</option>
+                                <option value="19" <?php echo $_SESSION['estado'] == 'Rio de Janeiro' ? 'selected' : ''; ?>>Rio de Janeiro</option>
+                                <option value="20" <?php echo $_SESSION['estado'] == 'Rio Grande do Norte' ? 'selected' : ''; ?>>Rio Grande do Norte</option>
+                                <option value="21" <?php echo $_SESSION['estado'] == 'Rio Grande do Sul' ? 'selected' : ''; ?>>Rio Grande do Sul</option>
+                                <option value="22" <?php echo $_SESSION['estado'] == 'Rondônia' ? 'selected' : ''; ?>>Rondônia</option>
+                                <option value="23" <?php echo $_SESSION['estado'] == 'Roraima' ? 'selected' : ''; ?>>Roraima</option>
+                                <option value="24" <?php echo $_SESSION['estado'] == 'Santa Catarina' ? 'selected' : ''; ?>>Santa Catarina</option>
+                                <option value="25" <?php echo $_SESSION['estado'] == 'São Paulo' ? 'selected' : ''; ?>>São Paulo</option>
+                                <option value="26" <?php echo $_SESSION['estado'] == 'Sergipe' ? 'selected' : ''; ?>>Sergipe</option>
+                                <option value="27" <?php echo $_SESSION['estado'] == 'Tocantins' ? 'selected' : ''; ?>>Tocantins</option>
                             </select><br />
                         </div>
                         <center>
@@ -220,34 +220,34 @@
                             <label for="bairro">Bairro: </label> <input type="text" name="bairroFuncionario" id="bairroFuncionario" required class="form-control" value="<?php echo $_SESSION['bairro']; ?>"><br />
                             <label for="cidade">Cidade: </label> <input type="text" name="cidadeFuncionario" name="cidadeFuncionario" required class="form-control" value="<?php echo $_SESSION['cidade']; ?>"><br />
                             <label for="estado">Estado:</label>
-                            <select name="estadoFuncionario" id="estadoFuncionario" class="form-control">
-                                <option value="1">Acre</option>
-                                <option value="2">Alagoas</option>
-                                <option value="3">Amapá</option>
-                                <option value="4">Amazonas</option>
-                                <option value="5">Bahia</option>
-                                <option value="6">Ceará</option>
-                                <option value="7">Distrito Federal</option>
-                                <option value="8">Espírito Santo</option>
-                                <option value="9">Goiás</option>
-                                <option value="10">Maranhão</option>
-                                <option value="11">Mato Grosso</option>
-                                <option value="12">Mato Grosso do Sul</option>
-                                <option value="13">Minas Gerais</option>
-                                <option value="14">Pará</option>
-                                <option value="15">Paraíba</option>
-                                <option value="16">Paraná</option>
-                                <option value="17">Pernambuco</option>
-                                <option value="18">Piauí</option>
-                                <option value="19">Rio de Janeiro</option>
-                                <option value="20">Rio Grande do Norte</option>
-                                <option value="21">Rio Grande do Sul</option>
-                                <option value="22">Rondônia</option>
-                                <option value="23">Roraima</option>
-                                <option value="24">Santa Catarina</option>
-                                <option value="25">São Paulo</option>
-                                <option value="26">Sergipe</option>
-                                <option value="27">Tocantins</option>
+                            <select name="estadoResponsavel" id="estadoResponsavel" class="form-control">
+                                <option value="1" <?php echo $_SESSION['estado'] == 'Acre' ? 'selected' : ''; ?>>Acre</option>
+                                <option value="2" <?php echo $_SESSION['estado'] == 'Alagoas' ? 'selected' : ''; ?>>Alagoas</option>
+                                <option value="3" <?php echo $_SESSION['estado'] == 'Amapá' ? 'selected' : ''; ?>>Amapá</option>
+                                <option value="4" <?php echo $_SESSION['estado'] == 'Amazonas' ? 'selected' : ''; ?>>Amazonas</option>
+                                <option value="5" <?php echo $_SESSION['estado'] == 'Bahia' ? 'selected' : ''; ?>>Bahia</option>
+                                <option value="6" <?php echo $_SESSION['estado'] == 'Ceará' ? 'selected' : ''; ?>>Ceará</option>
+                                <option value="7" <?php echo $_SESSION['estado'] == 'Destrito Federal' ? 'selected' : ''; ?>>Distrito Federal</option>
+                                <option value="8" <?php echo $_SESSION['estado'] == 'Espírito Santo' ? 'selected' : ''; ?>>Espírito Santo</option>
+                                <option value="9" <?php echo $_SESSION['estado'] == 'Goiás' ? 'selected' : ''; ?>>Goiás</option>
+                                <option value="10" <?php echo $_SESSION['estado'] == 'Maranhão' ? 'selected' : ''; ?>>Maranhão</option>
+                                <option value="11" <?php echo $_SESSION['estado'] == 'Mato Grosso' ? 'selected' : ''; ?>>Mato Grosso</option>
+                                <option value="12" <?php echo $_SESSION['estado'] == 'Mato Grosso do Sul' ? 'selected' : ''; ?>>Mato Grosso do Sul</option>
+                                <option value="13" <?php echo $_SESSION['estado'] == 'Minas Gerais' ? 'selected' : ''; ?>>Minas Gerais</option>
+                                <option value="14" <?php echo $_SESSION['estado'] == 'Pará' ? 'selected' : ''; ?>>Pará</option>
+                                <option value="15" <?php echo $_SESSION['estado'] == 'Paraíba' ? 'selected' : ''; ?>>Paraíba</option>
+                                <option value="16" <?php echo $_SESSION['estado'] == 'Paraná' ? 'selected' : ''; ?>>Paraná</option>
+                                <option value="17" <?php echo $_SESSION['estado'] == 'Pernambuco' ? 'selected' : ''; ?>>Pernambuco</option>
+                                <option value="18" <?php echo $_SESSION['estado'] == 'Piauí' ? 'selected' : ''; ?>>Piauí</option>
+                                <option value="19" <?php echo $_SESSION['estado'] == 'Rio de Janeiro' ? 'selected' : ''; ?>>Rio de Janeiro</option>
+                                <option value="20" <?php echo $_SESSION['estado'] == 'Rio Grande do Norte' ? 'selected' : ''; ?>>Rio Grande do Norte</option>
+                                <option value="21" <?php echo $_SESSION['estado'] == 'Rio Grande do Sul' ? 'selected' : ''; ?>>Rio Grande do Sul</option>
+                                <option value="22" <?php echo $_SESSION['estado'] == 'Rondônia' ? 'selected' : ''; ?>>Rondônia</option>
+                                <option value="23" <?php echo $_SESSION['estado'] == 'Roraima' ? 'selected' : ''; ?>>Roraima</option>
+                                <option value="24" <?php echo $_SESSION['estado'] == 'Santa Catarina' ? 'selected' : ''; ?>>Santa Catarina</option>
+                                <option value="25" <?php echo $_SESSION['estado'] == 'São Paulo' ? 'selected' : ''; ?>>São Paulo</option>
+                                <option value="26" <?php echo $_SESSION['estado'] == 'Sergipe' ? 'selected' : ''; ?>>Sergipe</option>
+                                <option value="27" <?php echo $_SESSION['estado'] == 'Tocantins' ? 'selected' : ''; ?>>Tocantins</option>
                             </select><br />
                         </div>
                         <center>

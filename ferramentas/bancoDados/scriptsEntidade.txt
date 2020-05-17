@@ -27,11 +27,11 @@ CREATE TABLE IF NOT EXISTS `endereco`(
 );
 
 CREATE TABLE IF NOT EXISTS `idoso` (
-    `idIdoso` int(9) AUTO_INCREMENT NOT NULL,  
-    `dataNasc` datetime NOT NULL,  
-    `cpf` varchar(11) NOT NULL,  
-    `nome` varchar(45) NOT NULL,  
-    `responsavelId` int (8) NOT NULL,
+    `idIdoso` int(9) AUTO_INCREMENT,  
+    `dataNasc` datetime,  
+    `cpf` varchar(11),  
+    `nome` varchar(45),  
+    `responsavelId` int (8),
     PRIMARY KEY (`idIdoso`)
 );
 
@@ -54,9 +54,9 @@ CREATE TABLE IF NOT EXISTS `responsavel`(
     `email` VARCHAR (45) NOT NULL,
     `dataNasc` DATETIME NOT NULL,
     `contatoId` INT (8) NOT NULL,
-    `idosoId` INT (8) NOT NULL,
+    `idosoId` INT (8),
     `enderecoId` INT (8) NOT NULL,
-    `asiloId` INT (8) NOT NULL,
+    `asiloId` INT (8),
     `loginId` int(8)  NOT NULL,
     PRIMARY KEY (`idResponsavel`)
 );

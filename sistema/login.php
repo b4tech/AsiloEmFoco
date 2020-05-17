@@ -93,19 +93,19 @@ if (isset($entrar)) {
 
         break;
 
-      case '2':
+      case '2': // Responsavel
         // Tabela login
         $_SESSION['idLogin'] = $arrayLogin['idLogin'];
         $_SESSION['login'] = $arrayLogin["username"];
         $_SESSION['senha'] = $arrayLogin["password"];
         $_SESSION['perfil'] = $arrayLogin["perfil"];
 
-        // Select Responsalvel
+        // Select Responsalvel  
         $selectResponsavel = mysqli_query($connect, "SELECT * FROM `responsavel` WHERE loginId=$auxIdLogin");
         // Comando para criar matriz de dados de acordo com o select acima
-        $arrayResponsavel = mysqli_fetch_assoc($selectLogin);
+        $arrayResponsavel = mysqli_fetch_assoc($selectResponsavel);
         $auxIdContato = $arrayResponsavel['contatoId'];
-        $auxIdendereco = $arrayResponsavel['enderecoId'];
+        $auxIdEndereco = $arrayResponsavel['enderecoId'];
 
         // select contato
         $selectContato = mysqli_query($connect, "SELECT * FROM `contato` WHERE idContato = $auxIdContato");
@@ -141,8 +141,8 @@ if (isset($entrar)) {
 
         // Tabela Responsavel
         $_SESSION['idResponsavel'] = $arrayResponsavel['idResponsavel'];
-        $_SESSION['nome'] = $arrayResponsavel['nome'];
-        $_SESSION['cpf'] = $arrayResponsavel['cpf'];
+        $_SESSION['nomeResp'] = $arrayResponsavel['nome'];
+        $_SESSION['cpfResp'] = $arrayResponsavel['cpf'];
         $_SESSION['email'] = $arrayResponsavel['email'];
         $_SESSION['dataNasc'] = $arrayResponsavel['dataNasc'];
         $_SESSION['idosoId'] = $arrayResponsavel['idosoId'];
@@ -155,9 +155,11 @@ if (isset($entrar)) {
         // Tabela Idoso
         $_SESSION['idIdoso'] = $arrayIdoso['idIdoso'];
         $_SESSION['dataNasc'] = $arrayIdoso['dataNasc'];
-        $_SESSION['cpf'] = $arrayIdoso['cpf'];
-        $_SESSION['nome'] = $arrayIdoso['nome'];
+        $_SESSION['cpfIdoso'] = $arrayIdoso['cpf'];
+        $_SESSION['nomeIdoso'] = $arrayIdoso['nome'];
         $_SESSION['responsavelId'] = $arrayIdoso['responsavelId'];
+
+        // print_r ($arrayResponsavel);
 
         header("Location:start/index.php");
 
