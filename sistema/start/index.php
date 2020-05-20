@@ -16,6 +16,14 @@
     <!-- Custom styles for this template -->
     <link href="css/shop-homepage.css" rel="stylesheet">
 
+    <style>
+        .foto-perfil {
+            border-radius: 200px;
+            width: 250px;
+            height: 250px;
+        }
+    </style>
+
 </head>
 
 <body>
@@ -23,159 +31,610 @@
     <!-- Navigation -->
     <?php include './header.php'; ?>
 
-    <!-- Page Content -->
+    <?php $perfil = $_SESSION['perfil'];
+
+    switch ($perfil) {
+        case '0':
+            $admin = "block";
+            $asilo = "none";
+            $responsavel = "none";
+            $funcionario = "none";
+            break;
+        case '1':
+            $admin = "none";
+            $asilo = "block";
+            $responsavel = "none";
+            $funcionario = "none";
+            break;
+        case '2':
+            $admin = "none";
+            $asilo = "none";
+            $responsavel = "block";
+            $funcionario = "none";
+            break;
+        case '3':
+            $admin = "none";
+            $asilo = "none";
+            $responsavel = "none";
+            $funcionario = "block";
+            break;
+    } ?>
+
+    <style>
+        .mainAdmin {
+            display: <?php echo $admin; ?>
+        }
+
+        .mainAsilo {
+            display: <?php echo $asilo; ?>
+        }
+
+        .mainResponsavel {
+            display: <?php echo $responsavel; ?>
+        }
+
+        .mainFuncionario {
+            display: <?php echo $funcionario; ?>
+        }
+    </style>
+
     <div class="container">
 
         <div class="row">
 
             <div class="col-lg-3">
 
-                <h1 class="my-4"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></h1>
+                <h1 class="my-4"><img class="foto-perfil" src="http://placehold.it/250x250" alt=""></h1>
                 <h1>
                     <?php
-                        echo $_SESSION['idLogin']." - ".$_SESSION['login'];
-                        //echo $_SESSION['idAsilo']." - ".$_SESSION['razaoSocial'];
-                    ?>
+                    switch ($perfil) {
+                        case '0':
+                            echo 'Administrador';
+                            break;
+                        case '1':
+                            echo $_SESSION['razaoSocial'];
+                            break;
+                        case '2':
+                            echo $_SESSION['nomeResp'];
+                            break;
+                        case '3':
+                            echo $_SESSION['nomeFunc'];
+                            break;
+                    } ?>
                 </h1>
-                <div class="list-group">
-                    <a href="#" class="list-group-item">Category 1</a>
-                    <a href="#" class="list-group-item">Category 2</a>
-                    <a href="#" class="list-group-item">Category 3</a>
+                <div class="mainAdmin">
+                    <div class="list-group">
+                        <a href="#" class="list-group-item">Category 1</a>
+                        <a href="#" class="list-group-item">Category 2</a>
+                        <a href="#" class="list-group-item">Category 3</a>
+                    </div>
+                </div>
+                <div class="mainAsilo">
+                    <div class="list-group">
+                        <a href="#" class="list-group-item">Cadastrar Idoso</a>
+                        <a href="#" class="list-group-item">Cadastrar Prontuário</a>
+                        <a href="#" class="list-group-item">Cadastrar Agenda</a>
+                    </div>
+                </div>
+                <div class="mainResponsavel">
+                    <div class="list-group">
+                        <a href="#" class="list-group-item">Cadastrar Idoso</a>
+                        <a href="#" class="list-group-item">Cadastrar Prontuário</a>
+                        <a href="#" class="list-group-item">Cadastrar Agenda</a>
+                    </div>
+                </div>
+                <div class="mainFuncionario">
+                    <div class="list-group">
+                        <a href="#" class="list-group-item">Category 1</a>
+                        <a href="#" class="list-group-item">Category 2</a>
+                        <a href="#" class="list-group-item">Category 3</a>
+                    </div>
                 </div>
 
             </div>
-            <!-- /.col-lg-3 -->
 
-            <div class="col-lg-9">
+            <div class="col-lg-9 my-4">
+                <!-- PERFIL: ADMINISTRADOR -->
+                <div class="mainAdmin">
+                    <div class="row">
+                        <div class="col-lg-4 col-md-6 mb-4">
+                            <div class="card h-100">
+                                <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
+                                <div class="card-body">
+                                    <h4 class="card-title">
+                                        <a href="#">Asilo 1</a>
+                                    </h4>
+                                    <h5>R$ 2000.00/mês</h5>
+                                    <p class="card-text">
+                                        Rua A - Vila Cisper<br />
+                                        Tel.? (11) 2222.3333<br />
+                                        Email: asilo1@contato.com.br
+                                    </p>
+                                </div>
+                                <div class="card-footer">
+                                    <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
+                                </div>
+                            </div>
+                        </div>
 
-                <div id="carouselExampleIndicators" class="carousel slide my-4" data-ride="carousel">
-                    <ol class="carousel-indicators">
-                        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-                    </ol>
-                    <div class="carousel-inner" role="listbox">
-                        <div class="carousel-item active">
-                            <img class="d-block img-fluid" src="http://placehold.it/900x350" alt="First slide">
+                        <div class="col-lg-4 col-md-6 mb-4">
+                            <div class="card h-100">
+                                <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
+                                <div class="card-body">
+                                    <h4 class="card-title">
+                                        <a href="#">Asilo 2</a>
+                                    </h4>
+                                    <h5>R$ 2300.00/mês</h5>
+                                    <p class="card-text">
+                                        Rua A - Vila Cisper<br />
+                                        Tel.? (11) 2222.3333<br />
+                                        Email: asilo1@contato.com.br
+                                    </p>
+                                </div>
+                                <div class="card-footer">
+                                    <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
+                                </div>
+                            </div>
                         </div>
-                        <div class="carousel-item">
-                            <img class="d-block img-fluid" src="http://placehold.it/900x350" alt="Second slide">
+
+                        <div class="col-lg-4 col-md-6 mb-4">
+                            <div class="card h-100">
+                                <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
+                                <div class="card-body">
+                                    <h4 class="card-title">
+                                        <a href="#">Asilo 3</a>
+                                    </h4>
+                                    <h5>R$ 1000.00/mês</h5>
+                                    <p class="card-text">
+                                        Rua A - Vila Cisper<br />
+                                        Tel.? (11) 2222.3333<br />
+                                        Email: asilo1@contato.com.br
+                                    </p>
+                                </div>
+                                <div class="card-footer">
+                                    <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
+                                </div>
+                            </div>
                         </div>
-                        <div class="carousel-item">
-                            <img class="d-block img-fluid" src="http://placehold.it/900x350" alt="Third slide">
+
+                        <div class="col-lg-4 col-md-6 mb-4">
+                            <div class="card h-100">
+                                <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
+                                <div class="card-body">
+                                    <h4 class="card-title">
+                                        <a href="#">Asilo 4</a>
+                                    </h4>
+                                    <h5>R$ 2000.00/mês</h5>
+                                    <p class="card-text">
+                                        Rua A - Vila Cisper<br />
+                                        Tel.? (11) 2222.3333<br />
+                                        Email: asilo1@contato.com.br
+                                    </p>
+                                </div>
+                                <div class="card-footer">
+                                    <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4 col-md-6 mb-4">
+                            <div class="card h-100">
+                                <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
+                                <div class="card-body">
+                                    <h4 class="card-title">
+                                        <a href="#">Asilo 5</a>
+                                    </h4>
+                                    <h5>R$ 800.00/mês</h5>
+                                    <p class="card-text">
+                                        Rua A - Vila Cisper<br />
+                                        Tel.? (11) 2222.3333<br />
+                                        Email: asilo1@contato.com.br
+                                    </p>
+                                </div>
+                                <div class="card-footer">
+                                    <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4 col-md-6 mb-4">
+                            <div class="card h-100">
+                                <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
+                                <div class="card-body">
+                                    <h4 class="card-title">
+                                        <a href="#">Asilo 6</a>
+                                    </h4>
+                                    <h5>R$ 1200.00/mês</h5>
+                                    <p class="card-text">
+                                        Rua A - Vila Cisper<br />
+                                        Tel.? (11) 2222.3333<br />
+                                        Email: asilo1@contato.com.br
+                                    </p>
+                                </div>
+                                <div class="card-footer">
+                                    <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="sr-only">Previous</span>
-                    </a>
-                    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="sr-only">Next</span>
-                    </a>
                 </div>
 
-                <div class="row">
-
-                    <div class="col-lg-4 col-md-6 mb-4">
-                        <div class="card h-100">
-                            <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
-                            <div class="card-body">
-                                <h4 class="card-title">
-                                    <a href="#">Asilo 1</a>
-                                </h4>
-                                <h5>R$ 2000.00/mês</h5>
-                                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p>
+                <!-- PERFIL: ASILO -->
+                <div class="mainAsilo">
+                    <div class="row">
+                        <div class="col-lg-4 col-md-6 mb-4">
+                            <div class="card h-100">
+                                <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
+                                <div class="card-body">
+                                    <h4 class="card-title">
+                                        <a href="#">Asilo 1</a>
+                                    </h4>
+                                    <h5>R$ 2000.00/mês</h5>
+                                    <p class="card-text">
+                                        Rua A - Vila Cisper<br />
+                                        Tel.? (11) 2222.3333<br />
+                                        Email: asilo1@contato.com.br
+                                    </p>
+                                </div>
+                                <div class="card-footer">
+                                    <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
+                                </div>
                             </div>
-                            <div class="card-footer">
-                                <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
+                        </div>
+
+                        <div class="col-lg-4 col-md-6 mb-4">
+                            <div class="card h-100">
+                                <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
+                                <div class="card-body">
+                                    <h4 class="card-title">
+                                        <a href="#">Asilo 2</a>
+                                    </h4>
+                                    <h5>R$ 2300.00/mês</h5>
+                                    <p class="card-text">
+                                        Rua A - Vila Cisper<br />
+                                        Tel.? (11) 2222.3333<br />
+                                        Email: asilo1@contato.com.br
+                                    </p>
+                                </div>
+                                <div class="card-footer">
+                                    <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4 col-md-6 mb-4">
+                            <div class="card h-100">
+                                <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
+                                <div class="card-body">
+                                    <h4 class="card-title">
+                                        <a href="#">Asilo 3</a>
+                                    </h4>
+                                    <h5>R$ 1000.00/mês</h5>
+                                    <p class="card-text">
+                                        Rua A - Vila Cisper<br />
+                                        Tel.? (11) 2222.3333<br />
+                                        Email: asilo1@contato.com.br
+                                    </p>
+                                </div>
+                                <div class="card-footer">
+                                    <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4 col-md-6 mb-4">
+                            <div class="card h-100">
+                                <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
+                                <div class="card-body">
+                                    <h4 class="card-title">
+                                        <a href="#">Asilo 4</a>
+                                    </h4>
+                                    <h5>R$ 2000.00/mês</h5>
+                                    <p class="card-text">
+                                        Rua A - Vila Cisper<br />
+                                        Tel.? (11) 2222.3333<br />
+                                        Email: asilo1@contato.com.br
+                                    </p>
+                                </div>
+                                <div class="card-footer">
+                                    <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4 col-md-6 mb-4">
+                            <div class="card h-100">
+                                <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
+                                <div class="card-body">
+                                    <h4 class="card-title">
+                                        <a href="#">Asilo 5</a>
+                                    </h4>
+                                    <h5>R$ 800.00/mês</h5>
+                                    <p class="card-text">
+                                        Rua A - Vila Cisper<br />
+                                        Tel.? (11) 2222.3333<br />
+                                        Email: asilo1@contato.com.br
+                                    </p>
+                                </div>
+                                <div class="card-footer">
+                                    <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4 col-md-6 mb-4">
+                            <div class="card h-100">
+                                <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
+                                <div class="card-body">
+                                    <h4 class="card-title">
+                                        <a href="#">Asilo 6</a>
+                                    </h4>
+                                    <h5>R$ 1200.00/mês</h5>
+                                    <p class="card-text">
+                                        Rua A - Vila Cisper<br />
+                                        Tel.? (11) 2222.3333<br />
+                                        Email: asilo1@contato.com.br
+                                    </p>
+                                </div>
+                                <div class="card-footer">
+                                    <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
+                                </div>
                             </div>
                         </div>
                     </div>
-
-                    <div class="col-lg-4 col-md-6 mb-4">
-                        <div class="card h-100">
-                            <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
-                            <div class="card-body">
-                                <h4 class="card-title">
-                                    <a href="#">Item Two</a>
-                                </h4>
-                                <h5>$24.99</h5>
-                                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur! Lorem ipsum dolor sit amet.</p>
-                            </div>
-                            <div class="card-footer">
-                                <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4 col-md-6 mb-4">
-                        <div class="card h-100">
-                            <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
-                            <div class="card-body">
-                                <h4 class="card-title">
-                                    <a href="#">Item Three</a>
-                                </h4>
-                                <h5>$24.99</h5>
-                                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p>
-                            </div>
-                            <div class="card-footer">
-                                <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4 col-md-6 mb-4">
-                        <div class="card h-100">
-                            <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
-                            <div class="card-body">
-                                <h4 class="card-title">
-                                    <a href="#">Item Four</a>
-                                </h4>
-                                <h5>$24.99</h5>
-                                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p>
-                            </div>
-                            <div class="card-footer">
-                                <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4 col-md-6 mb-4">
-                        <div class="card h-100">
-                            <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
-                            <div class="card-body">
-                                <h4 class="card-title">
-                                    <a href="#">Item Five</a>
-                                </h4>
-                                <h5>$24.99</h5>
-                                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur! Lorem ipsum dolor sit amet.</p>
-                            </div>
-                            <div class="card-footer">
-                                <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4 col-md-6 mb-4">
-                        <div class="card h-100">
-                            <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
-                            <div class="card-body">
-                                <h4 class="card-title">
-                                    <a href="#">Item Six</a>
-                                </h4>
-                                <h5>$24.99</h5>
-                                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p>
-                            </div>
-                            <div class="card-footer">
-                                <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
-                            </div>
-                        </div>
-                    </div>
-
                 </div>
+
+                <!-- PERFIL: RESPONSÁVEL -->
+                <div class="mainResponsavel">
+                    <div class="row">
+                        <div class="col-lg-4 col-md-6 mb-4">
+                            <div class="card h-100">
+                                <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
+                                <div class="card-body">
+                                    <h4 class="card-title">
+                                        <a href="#">Asilo 1</a>
+                                    </h4>
+                                    <h5>R$ 2000.00/mês</h5>
+                                    <p class="card-text">
+                                        Rua A - Vila Cisper<br />
+                                        Tel.? (11) 2222.3333<br />
+                                        Email: asilo1@contato.com.br
+                                    </p>
+                                </div>
+                                <div class="card-footer">
+                                    <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4 col-md-6 mb-4">
+                            <div class="card h-100">
+                                <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
+                                <div class="card-body">
+                                    <h4 class="card-title">
+                                        <a href="#">Asilo 2</a>
+                                    </h4>
+                                    <h5>R$ 2300.00/mês</h5>
+                                    <p class="card-text">
+                                        Rua A - Vila Cisper<br />
+                                        Tel.? (11) 2222.3333<br />
+                                        Email: asilo1@contato.com.br
+                                    </p>
+                                </div>
+                                <div class="card-footer">
+                                    <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4 col-md-6 mb-4">
+                            <div class="card h-100">
+                                <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
+                                <div class="card-body">
+                                    <h4 class="card-title">
+                                        <a href="#">Asilo 3</a>
+                                    </h4>
+                                    <h5>R$ 1000.00/mês</h5>
+                                    <p class="card-text">
+                                        Rua A - Vila Cisper<br />
+                                        Tel.? (11) 2222.3333<br />
+                                        Email: asilo1@contato.com.br
+                                    </p>
+                                </div>
+                                <div class="card-footer">
+                                    <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4 col-md-6 mb-4">
+                            <div class="card h-100">
+                                <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
+                                <div class="card-body">
+                                    <h4 class="card-title">
+                                        <a href="#">Asilo 4</a>
+                                    </h4>
+                                    <h5>R$ 2000.00/mês</h5>
+                                    <p class="card-text">
+                                        Rua A - Vila Cisper<br />
+                                        Tel.? (11) 2222.3333<br />
+                                        Email: asilo1@contato.com.br
+                                    </p>
+                                </div>
+                                <div class="card-footer">
+                                    <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4 col-md-6 mb-4">
+                            <div class="card h-100">
+                                <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
+                                <div class="card-body">
+                                    <h4 class="card-title">
+                                        <a href="#">Asilo 5</a>
+                                    </h4>
+                                    <h5>R$ 800.00/mês</h5>
+                                    <p class="card-text">
+                                        Rua A - Vila Cisper<br />
+                                        Tel.? (11) 2222.3333<br />
+                                        Email: asilo1@contato.com.br
+                                    </p>
+                                </div>
+                                <div class="card-footer">
+                                    <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4 col-md-6 mb-4">
+                            <div class="card h-100">
+                                <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
+                                <div class="card-body">
+                                    <h4 class="card-title">
+                                        <a href="#">Asilo 6</a>
+                                    </h4>
+                                    <h5>R$ 1200.00/mês</h5>
+                                    <p class="card-text">
+                                        Rua A - Vila Cisper<br />
+                                        Tel.? (11) 2222.3333<br />
+                                        Email: asilo1@contato.com.br
+                                    </p>
+                                </div>
+                                <div class="card-footer">
+                                    <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PERFIL: FUNCIONÁRIO -->
+                <div class="mainFuncionario">
+                    <div class="row">
+                        <div class="col-lg-4 col-md-6 mb-4">
+                            <div class="card h-100">
+                                <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
+                                <div class="card-body">
+                                    <h4 class="card-title">
+                                        <a href="#">Asilo 1</a>
+                                    </h4>
+                                    <h5>R$ 2000.00/mês</h5>
+                                    <p class="card-text">
+                                        Rua A - Vila Cisper<br />
+                                        Tel.? (11) 2222.3333<br />
+                                        Email: asilo1@contato.com.br
+                                    </p>
+                                </div>
+                                <div class="card-footer">
+                                    <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4 col-md-6 mb-4">
+                            <div class="card h-100">
+                                <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
+                                <div class="card-body">
+                                    <h4 class="card-title">
+                                        <a href="#">Asilo 2</a>
+                                    </h4>
+                                    <h5>R$ 2300.00/mês</h5>
+                                    <p class="card-text">
+                                        Rua A - Vila Cisper<br />
+                                        Tel.? (11) 2222.3333<br />
+                                        Email: asilo1@contato.com.br
+                                    </p>
+                                </div>
+                                <div class="card-footer">
+                                    <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4 col-md-6 mb-4">
+                            <div class="card h-100">
+                                <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
+                                <div class="card-body">
+                                    <h4 class="card-title">
+                                        <a href="#">Asilo 3</a>
+                                    </h4>
+                                    <h5>R$ 1000.00/mês</h5>
+                                    <p class="card-text">
+                                        Rua A - Vila Cisper<br />
+                                        Tel.? (11) 2222.3333<br />
+                                        Email: asilo1@contato.com.br
+                                    </p>
+                                </div>
+                                <div class="card-footer">
+                                    <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4 col-md-6 mb-4">
+                            <div class="card h-100">
+                                <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
+                                <div class="card-body">
+                                    <h4 class="card-title">
+                                        <a href="#">Asilo 4</a>
+                                    </h4>
+                                    <h5>R$ 2000.00/mês</h5>
+                                    <p class="card-text">
+                                        Rua A - Vila Cisper<br />
+                                        Tel.? (11) 2222.3333<br />
+                                        Email: asilo1@contato.com.br
+                                    </p>
+                                </div>
+                                <div class="card-footer">
+                                    <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4 col-md-6 mb-4">
+                            <div class="card h-100">
+                                <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
+                                <div class="card-body">
+                                    <h4 class="card-title">
+                                        <a href="#">Asilo 5</a>
+                                    </h4>
+                                    <h5>R$ 800.00/mês</h5>
+                                    <p class="card-text">
+                                        Rua A - Vila Cisper<br />
+                                        Tel.? (11) 2222.3333<br />
+                                        Email: asilo1@contato.com.br
+                                    </p>
+                                </div>
+                                <div class="card-footer">
+                                    <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4 col-md-6 mb-4">
+                            <div class="card h-100">
+                                <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
+                                <div class="card-body">
+                                    <h4 class="card-title">
+                                        <a href="#">Asilo 6</a>
+                                    </h4>
+                                    <h5>R$ 1200.00/mês</h5>
+                                    <p class="card-text">
+                                        Rua A - Vila Cisper<br />
+                                        Tel.? (11) 2222.3333<br />
+                                        Email: asilo1@contato.com.br
+                                    </p>
+                                </div>
+                                <div class="card-footer">
+                                    <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
                 <!-- /.row -->
-
             </div>
             <!-- /.col-lg-9 -->
 

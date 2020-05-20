@@ -213,7 +213,7 @@ if (isset($entrar)) {
 
         // Tabela funcionario
         $_SESSION['idFuncionario'] = $arrayFuncionario['idFuncionario'];
-        $_SESSION['nome'] = $arrayFuncionario['nome'];
+        $_SESSION['nomeFunc'] = $arrayFuncionario['nome'];
         $_SESSION['cpf'] = $arrayFuncionario['cpf'];
         $_SESSION['email'] = $arrayFuncionario['email'];
         $_SESSION['dataNasc'] = $arrayFuncionario['dataNasc'];
