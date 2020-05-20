@@ -16,7 +16,7 @@ $cep = $_POST['cep'];
 $bairro = $_POST['bairro'];
 $estado = $_POST['estado'];
 
-$connect = new mysqli('127.0.0.1', 'root', '', 'asiloemfoco');
+  $connect = new mysqli('127.0.0.1', 'root', '', 'asiloemfoco');
 $query_select = $connect->query("SELECT cnpj FROM asilo WHERE cnpj='$cnpj'");
 $row = $query_select->fetch_row();
 

@@ -26,9 +26,9 @@ if (isset($entrar)) {
     switch ($perfil) {
       case '1':
         // Tabela login
-        $_SESSION['idLogin'] = $arrayLogin['idLogin'];
-        $_SESSION['login'] = $arrayLogin["username"];
-        $_SESSION['senha'] = $arrayLogin["password"];
+        $_SESSION['idLoginAsilo'] = $arrayLogin['idLogin'];
+        $_SESSION['loginAsilo'] = $arrayLogin["username"];
+        $_SESSION['senhaAsilo'] = $arrayLogin["password"];
         $_SESSION['perfil'] = $arrayLogin["perfil"];
 
         // Select Asilo
@@ -55,26 +55,29 @@ if (isset($entrar)) {
         $arrayEstado = mysqli_fetch_assoc($selectEstado);
 
         // tabela endereco
-        $_SESSION['cidade'] = $arrayEndereco['cidade'];
-        $_SESSION['logradouro'] = $arrayEndereco['logradouro'];
-        $_SESSION['numero'] = $arrayEndereco['numero'];
-        $_SESSION['cep'] = $arrayEndereco['cep'];
-        $_SESSION['bairro'] = $arrayEndereco['bairro'];
-        $_SESSION['complemento'] = $arrayEndereco['complemento'];
+        $_SESSION['enderecoIdAsilo'] = $arrayEndereco['idEndereco'];
+        $_SESSION['cidadeAsilo'] = $arrayEndereco['cidade'];
+        $_SESSION['logradouroAsilo'] = $arrayEndereco['logradouro'];
+        $_SESSION['numeroAsilo'] = $arrayEndereco['numero'];
+        $_SESSION['cepAsilo'] = $arrayEndereco['cep'];
+        $_SESSION['bairroAsilo'] = $arrayEndereco['bairro'];
+        $_SESSION['complementoAsilo'] = $arrayEndereco['complemento'];
 
         // tabela estado
-        $_SESSION['sigla'] = $arrayEstado['sigla'];
-        $_SESSION['estado'] = $arrayEstado['nome'];
+        $_SESSION['idEstadoAsilo'] = $arrayEndereco['idEstado'];
+        $_SESSION['siglaAsilo'] = $arrayEstado['sigla'];
+        $_SESSION['estadoAsilo'] = $arrayEstado['nome'];
 
         // tabela contato
-        $_SESSION['tipoTel'] = $arrayContato['tipo'];
-        $_SESSION['telefone'] = $arrayContato['telefone'];
+        $_SESSION['idContatoAsilo'] = $arrayContato['idContato'];
+        $_SESSION['tipoTelAsilo'] = $arrayContato['tipo'];
+        $_SESSION['telefoneAsilo'] = $arrayContato['telefone'];
 
         // tabela Asilo
         $_SESSION['idAsilo'] = $arrayAsilo['idAsilo'];
         $_SESSION['razaoSocial'] = $arrayAsilo['razaoSocial'];
         $_SESSION['cnpj'] = $arrayAsilo['cnpj'];
-        $_SESSION['email'] = $arrayAsilo['email'];
+        $_SESSION['emailAsilo'] = $arrayAsilo['email'];
 
         // echo $_SESSION['cidade'] ."<br />";
         // echo $_SESSION['logradouro'] ."<br />";
@@ -95,9 +98,9 @@ if (isset($entrar)) {
 
       case '2': // Responsavel
         // Tabela login
-        $_SESSION['idLogin'] = $arrayLogin['idLogin'];
-        $_SESSION['login'] = $arrayLogin["username"];
-        $_SESSION['senha'] = $arrayLogin["password"];
+        $_SESSION['idLoginResponsavel'] = $arrayLogin['idLogin'];
+        $_SESSION['loginResponsavel'] = $arrayLogin["username"];
+        $_SESSION['senhaResponsavel'] = $arrayLogin["password"];
         $_SESSION['perfil'] = $arrayLogin["perfil"];
 
         // Select Responsalvel  
@@ -124,27 +127,30 @@ if (isset($entrar)) {
         $arrayEstado = mysqli_fetch_assoc($selectEstado);
 
         // tabela endereco
-        $_SESSION['cidade'] = $arrayEndereco['cidade'];
-        $_SESSION['logradouro'] = $arrayEndereco['logradouro'];
-        $_SESSION['numero'] = $arrayEndereco['numero'];
-        $_SESSION['cep'] = $arrayEndereco['cep'];
-        $_SESSION['bairro'] = $arrayEndereco['bairro'];
-        $_SESSION['complemento'] = $arrayEndereco['complemento'];
+        $_SESSION['idEnderecoResponsavel'] = $arrayEndereco['idEndereco'];
+        $_SESSION['cidadeResponsavel'] = $arrayEndereco['cidade'];
+        $_SESSION['logradouroResponsavel'] = $arrayEndereco['logradouro'];
+        $_SESSION['numeroResponsavel'] = $arrayEndereco['numero'];
+        $_SESSION['cepResponsavel'] = $arrayEndereco['cep'];
+        $_SESSION['bairroResponsavel'] = $arrayEndereco['bairro'];
+        $_SESSION['complementoResponsavel'] = $arrayEndereco['complemento'];
 
         // tabela estado
-        $_SESSION['sigla'] = $arrayEstado['sigla'];
-        $_SESSION['estado'] = $arrayEstado['nome'];
+        $_SESSION['idEstadoResponsavel'] = $_SESSION['idEstado'];
+        $_SESSION['siglaResponsavel'] = $arrayEstado['sigla'];
+        $_SESSION['estadoResponsavel'] = $arrayEstado['nome'];
 
         // tabela contato
-        $_SESSION['tipoTel'] = $arrayContato['tipo'];
-        $_SESSION['telefone'] = $arrayContato['telefone'];
+        $_SESSION['idContatoResponsavel'] = $arrayContato['idContato'];
+        $_SESSION['tipoTelResponsavel'] = $arrayContato['tipo'];
+        $_SESSION['telefoneResponsavel'] = $arrayContato['telefone'];
 
         // Tabela Responsavel
         $_SESSION['idResponsavel'] = $arrayResponsavel['idResponsavel'];
-        $_SESSION['nomeResp'] = $arrayResponsavel['nome'];
-        $_SESSION['cpfResp'] = $arrayResponsavel['cpf'];
-        $_SESSION['email'] = $arrayResponsavel['email'];
-        $_SESSION['dataNasc'] = $arrayResponsavel['dataNasc'];
+        $_SESSION['nomeResponsavel'] = $arrayResponsavel['nome'];
+        $_SESSION['cpfResponsavel'] = $arrayResponsavel['cpf'];
+        $_SESSION['emailResponsavel'] = $arrayResponsavel['email'];
+        $_SESSION['dataNascResponsavel'] = $arrayResponsavel['dataNasc'];
         $_SESSION['idosoId'] = $arrayResponsavel['idosoId'];
 
         // Tabela Idoso 
@@ -154,7 +160,7 @@ if (isset($entrar)) {
 
         // Tabela Idoso
         $_SESSION['idIdoso'] = $arrayIdoso['idIdoso'];
-        $_SESSION['dataNasc'] = $arrayIdoso['dataNasc'];
+        $_SESSION['dataNascIdoso'] = $arrayIdoso['dataNasc'];
         $_SESSION['cpfIdoso'] = $arrayIdoso['cpf'];
         $_SESSION['nomeIdoso'] = $arrayIdoso['nome'];
         $_SESSION['responsavelId'] = $arrayIdoso['responsavelId'];
@@ -167,9 +173,9 @@ if (isset($entrar)) {
 
       case '3':
         // Tabela login
-        $_SESSION['idLogin'] = $arrayLogin['idLogin'];
-        $_SESSION['login'] = $arrayLogin["username"];
-        $_SESSION['senha'] = $arrayLogin["password"];
+        $_SESSION['idLoginFuncionario'] = $arrayLogin['idLogin'];
+        $_SESSION['loginFuncionario'] = $arrayLogin["username"];
+        $_SESSION['senhaFuncionario'] = $arrayLogin["password"];
         $_SESSION['perfil'] = $arrayLogin["perfil"];
 
         // Tabela Funcionario
@@ -196,28 +202,31 @@ if (isset($entrar)) {
         $arrayEstado = mysqli_fetch_assoc($selectEstado);
 
         // tabela endereco
-        $_SESSION['cidade'] = $arrayEndereco['cidade'];
-        $_SESSION['logradouro'] = $arrayEndereco['logradouro'];
-        $_SESSION['numero'] = $arrayEndereco['numero'];
-        $_SESSION['cep'] = $arrayEndereco['cep'];
-        $_SESSION['bairro'] = $arrayEndereco['bairro'];
-        $_SESSION['complemento'] = $arrayEndereco['complemento'];
+        $_SESSION['idEnderecoFuncionario'] = $_SESSION['idEndereco'];
+        $_SESSION['cidadeFuncionario'] = $arrayEndereco['cidade'];
+        $_SESSION['logradouroFuncionario'] = $arrayEndereco['logradouro'];
+        $_SESSION['numeroFuncionario'] = $arrayEndereco['numero'];
+        $_SESSION['cepFuncionario'] = $arrayEndereco['cep'];
+        $_SESSION['bairroFuncionario'] = $arrayEndereco['bairro'];
+        $_SESSION['complementoFuncionario'] = $arrayEndereco['complemento'];
 
         // tabela estado
-        $_SESSION['sigla'] = $arrayEstado['sigla'];
-        $_SESSION['estado'] = $arrayEstado['nome'];
+        $_SESSION['idEstadoFuncionario'] = $_SESSION['idEstado'];
+        $_SESSION['siglaFuncionario'] = $arrayEstado['sigla'];
+        $_SESSION['estadoFuncionario'] = $arrayEstado['nome'];
 
         // tabela contato
-        $_SESSION['tipoTel'] = $arrayContato['tipo'];
-        $_SESSION['telefone'] = $arrayContato['telefone'];
+        $_SESSION['idContatoFuncionario'] = $_SESSION['idContato'];
+        $_SESSION['tipoTelFuncionario'] = $arrayContato['tipo'];
+        $_SESSION['telefoneFuncionario'] = $arrayContato['telefone'];
 
         // Tabela funcionario
         $_SESSION['idFuncionario'] = $arrayFuncionario['idFuncionario'];
-        $_SESSION['nomeFunc'] = $arrayFuncionario['nome'];
-        $_SESSION['cpf'] = $arrayFuncionario['cpf'];
-        $_SESSION['email'] = $arrayFuncionario['email'];
-        $_SESSION['dataNasc'] = $arrayFuncionario['dataNasc'];
-        $_SESSION['contatoId'] = $arrayFuncionario['cantatoId'];
+        $_SESSION['nomeFuncionario'] = $arrayFuncionario['nome'];
+        $_SESSION['cpfFuncionario'] = $arrayFuncionario['cpf'];
+        $_SESSION['emailFuncionario'] = $arrayFuncionario['email'];
+        $_SESSION['dataNascFuncionario'] = $arrayFuncionario['dataNasc'];
+        $_SESSION['contatoIdFuncionario'] = $arrayFuncionario['cantatoId'];
         $_SESSION['asiloId'] = $arrayFuncionario['asiloId'];
         $_SESSION['enderecoId'] = $arrayFuncionario['enderecoId'];
         $_SESSION['formacaoId'] = $arrayFuncionario['formacaoId'];
