@@ -32,7 +32,7 @@ if (isset($entrar)) {
         $_SESSION['perfil'] = $arrayLogin["perfil"];
 
         // Select Asilo
-        $selectAsilo = mysqli_query($connect, "SELECT * FROM `asilo` WHERE loginId=$auxIdLogin");
+        $selectAsilo = mysqli_query($connect, "SELECT * FROM `asilo` WHERE loginId = $auxIdLogin");
         // Comando para criar matriz de dados de acordo com o select acima
         $arrayAsilo = mysqli_fetch_assoc($selectAsilo);
         $auxIdContato = $arrayAsilo['contatoId'];
@@ -64,7 +64,7 @@ if (isset($entrar)) {
         $_SESSION['complementoAsilo'] = $arrayEndereco['complemento'];
 
         // tabela estado
-        $_SESSION['idEstadoAsilo'] = $arrayEndereco['idEstado'];
+        $_SESSION['idEstadoAsilo'] = $arrayEndereco['estadoId'];
         $_SESSION['siglaAsilo'] = $arrayEstado['sigla'];
         $_SESSION['estadoAsilo'] = $arrayEstado['nome'];
 
@@ -91,7 +91,7 @@ if (isset($entrar)) {
         // echo $_SESSION['telefone'] ."<br />";
         
         //print_r($_SESSION);
-
+        //echo $_SESSION['emailAsilo'];
         header("Location:start/index.php");
 
         break;

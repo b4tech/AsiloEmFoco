@@ -95,10 +95,10 @@
                             echo $_SESSION['razaoSocial'];
                             break;
                         case '2':
-                            echo $_SESSION['nomeResp'];
+                            echo $_SESSION['nomeResponsavel'];
                             break;
                         case '3':
-                            echo $_SESSION['nomeFunc'];
+                            echo $_SESSION['nomeFuncionario'];
                             break;
                     } ?>
                 </h1>

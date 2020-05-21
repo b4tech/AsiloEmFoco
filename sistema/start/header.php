@@ -1,5 +1,7 @@
 <?php
-    session_start();
+session_start();
+
+$perfil = $_SESSION['perfil'];
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -35,7 +37,20 @@
                         <div class="dropdown show">
                             <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <?php
-                                    echo $_SESSION['login'];
+                                switch ($perfil) {
+                                    case '0':
+                                        echo 'Administrador';
+                                        break;
+                                    case '1':
+                                        echo $_SESSION['loginAsilo'];
+                                        break;
+                                    case '2':
+                                        echo $_SESSION['loginResponsavel'];
+                                        break;
+                                    case '3':
+                                        echo $_SESSION['loginFuncionario'];
+                                        break;
+                                }
                                 ?>
                             </a>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
