@@ -165,7 +165,7 @@ if (isset($entrar)) {
         $_SESSION['nomeIdoso'] = $arrayIdoso['nome'];
         $_SESSION['responsavelId'] = $arrayIdoso['responsavelId'];
 
-        // print_r ($arrayResponsavel);
+        // echo $_SESSION['dataNascResponsavel'];
 
         header("Location:start/index.php");
 

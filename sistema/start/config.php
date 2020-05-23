@@ -137,23 +137,23 @@
                             <label for="senhaAtualResponsavel">Senha atual:</label> <input type="text" id="senhaAtualResponsavel" name="senhaAtualResponsavel" class="form-control" value="<?php echo $_SESSION['senhaResponsavel']; ?>"><br />
                             <label for="novaSenhaResponsavel">Nova Senha:</label> <input type="password" id="novaSenhaResponsavel" name="novaSenhaResponsavel" class="form-control"><br />
                             <label for="password">Confirmar Nova Senha:</label> <input type="password" id="confirmaNovaSenhaResponsavel" name="confirmaNovaSenhaResponsavel" class="form-control"><br />
-                            <label for="nomeResponsavel">Nome: </label><input type="text" name="nomeResponsavel" id="nomeResponsavel" required class="form-control" value="<?php echo $_SESSION['nomeResponsavel']; ?>"><br />
-                            <label for="cfpResponsavel">CPF:</label> <input type="text" name="cfpResponsavel" id="cpfResponsavel" required oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" class="form-control" value="<?php echo $_SESSION['cpfResponsavel']; ?>"><br />
-                            <label for="emailResponsavel">E-Mail:</label> <input type="email" name="emailResponsavel" id="emailResponsavel" required class="form-control" class="form-control" value="<?php echo $_SESSION['emailResponsavel']; ?>"><br />
-                            <label for="dataNascResponsavel">Data de Nascimento: </label> <input type="text" id="dataNascResponsavel" name="dataNascResponsavel" required oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" class="form-control"><br />
-                            <label for="telefoneResponsavel">Telefone:</label><input type="text" name="telefoneResponsavel" id="telefoneResponsavel" required oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" class="form-control" value="<?php echo $_SESSION['telefoneResponsavel']; ?>"><br />
+                            <label for="nomeResponsavel">Nome: </label><input type="text" name="nomeResponsavel" id="nomeResponsavel"  class="form-control" value="<?php echo $_SESSION['nomeResponsavel']; ?>"><br />
+                            <label for="cfpResponsavel">CPF:</label> <input type="text" name="cpfResponsavel" id="cpfResponsavel"  oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" class="form-control" value="<?php echo $_SESSION['cpfResponsavel']; ?>"><br />
+                            <label for="emailResponsavel">E-Mail:</label> <input type="email" name="emailResponsavel" id="emailResponsavel"  class="form-control" class="form-control" value="<?php echo $_SESSION['emailResponsavel']; ?>"><br />
+                            <label for="dataNascResponsavel">Data de Nascimento: </label> <input type="date" id="dataNascResponsavel" name="dataNascResponsavel"   class="form-control" value="<?php echo $_SESSION['dataNascResponsavel']; ?>"><br />
+                            <label for="telefoneResponsavel">Telefone:</label><input type="text" name="telefoneResponsavel" id="telefoneResponsavel"  oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" class="form-control" value="<?php echo $_SESSION['telefoneResponsavel']; ?>"><br />
                             <label for="tipoTelResponsavel">Tipo do Telefone:</label>
                             <select name="tipoTelResponsavel" id="tipoTelResponsavel" class="form-control">
                                 <option value="1">Residencial</option>
                                 <option value="2">Celular</option>
                                 <option value="3">Comercial</option>
                             </select><br />
-                            <label for="cepResponsavel">CEP: </label><input type="text" name="cepResponsavel" id="cepResponsavel" required oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" class="form-control" value="<?php echo $_SESSION['cepResponsavel']; ?>"><br />
-                            <label for="logradouroResponsavel">Logradouro: </label> <input type="text" name="logradouroResponsavel" id="logradouroResponsavel" required class="form-control" value="<?php echo $_SESSION['logradouroResponsavel']; ?>"><br />
-                            <label for="numeroResponsavel">Número: </label> <input type="text" name="numeroResponsavel" id="numeroResponsavel" required oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" class="form-control" value="<?php echo $_SESSION['numeroResponsavel']; ?>"><br />
+                            <label for="cepResponsavel">CEP: </label><input type="text" name="cepResponsavel" id="cepResponsavel"  oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" class="form-control" value="<?php echo $_SESSION['cepResponsavel']; ?>"><br />
+                            <label for="logradouroResponsavel">Logradouro: </label> <input type="text" name="logradouroResponsavel" id="logradouroResponsavel"  class="form-control" value="<?php echo $_SESSION['logradouroResponsavel']; ?>"><br />
+                            <label for="numeroResponsavel">Número: </label> <input type="text" name="numeroResponsavel" id="numeroResponsavel"  oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" class="form-control" value="<?php echo $_SESSION['numeroResponsavel']; ?>"><br />
                             <label for="complementoResponsavel">Complemento: </label> <input type="text" name="complementoResponsavel" id="complementoResponsavel" class="form-control" value="<?php echo $_SESSION['complementoResponsavel']; ?>"><br />
-                            <label for="bairroResponsavel">Bairro: </label> <input type="text" name="bairroResponsavel" id="bairroResponsavel" required class="form-control" value="<?php echo $_SESSION['bairroResponsavel']; ?>"><br />
-                            <label for="cidadeResponsavel">Cidade: </label> <input type="text" name="cidadeResponsavel" name="cidadeResponsavel" required class="form-control" value="<?php echo $_SESSION['cidadeResponsavel']; ?>"><br />
+                            <label for="bairroResponsavel">Bairro: </label> <input type="text" name="bairroResponsavel" id="bairroResponsavel"  class="form-control" value="<?php echo $_SESSION['bairroResponsavel']; ?>"><br />
+                            <label for="cidadeResponsavel">Cidade: </label> <input type="text" name="cidadeResponsavel" name="cidadeResponsavel"  class="form-control" value="<?php echo $_SESSION['cidadeResponsavel']; ?>"><br />
                             <label for="estadoResponsavel">Estado:</label>
                             <select name="estadoResponsavel" id="estadoResponsavel" class="form-control">
                                 <option value="1" <?php echo $_SESSION['estadoResponsavel'] == 'Acre' ? 'selected' : ''; ?>>Acre</option>
@@ -198,26 +198,26 @@
                 <section>
                     <form action="../atualizarFuncionario.php" method="POST">
                         <div class="form-group" id="funcionario">
-                            <label for="senhaAtualFuncionario">Senha atual:</label> <input type="text" id="senhaAtualFuncionario" name="senhaAtualFuncionario" required class="form-control" value="<?php echo $_SESSION['senhaFuncionario']; ?>"><br />
-                            <label for="novaSenhaFuncionario">Nova Senha:</label> <input type="password" id="novaSenhaFuncionario" name="novaSenhaFuncionario" required class="form-control"><br />
-                            <label for="confirmaNovaSenhaFuncionario">Confirmar Nova Senha:</label> <input type="password" id="confirmaNovaSenhaFuncionario" name="confirmaNovaSenhaFuncionario" required class="form-control"><br />
-                            <label for="nomeFuncionario">Nome: </label><input type="text" name="nomeFuncionario" id="nomeFuncionario" required class="form-control" value="<?php echo $_SESSION['nomeFuncionario']; ?>"><br />
-                            <label for="cfpFuncionario">CPF:</label> <input type="text" name="cfpFuncionario" id="cpfFuncionario" required oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" class="form-control" value="<?php echo $_SESSION['cpfFuncionario']; ?>"><br />
-                            <label for="emailFuncionario">E-Mail:</label> <input type="email" name="emailFuncionario" id="emailFuncionario" required class="form-control" class="form-control" value="<?php echo $_SESSION['emailFuncionario']; ?>"><br />
-                            <label for="dataNascFuncionario">Data de Nascimento: </label> <input type="text" id="dataNascFuncionario" name="dataNascFuncionario" required oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" class="form-control"><br />
-                            <label for="telefoneFuncionario">Telefone:</label><input type="text" name="telefoneFuncionario" id="telefoneFuncionario" required oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" class="form-control" value="<?php echo $_SESSION['telefoneFuncionario']; ?>"><br />
+                            <label for="senhaAtualFuncionario">Senha atual:</label> <input type="text" id="senhaAtualFuncionario" name="senhaAtualFuncionario"  class="form-control" value="<?php echo $_SESSION['senhaFuncionario']; ?>"><br />
+                            <label for="novaSenhaFuncionario">Nova Senha:</label> <input type="password" id="novaSenhaFuncionario" name="novaSenhaFuncionario"  class="form-control"><br />
+                            <label for="confirmaNovaSenhaFuncionario">Confirmar Nova Senha:</label> <input type="password" id="confirmaNovaSenhaFuncionario" name="confirmaNovaSenhaFuncionario"  class="form-control"><br />
+                            <label for="nomeFuncionario">Nome: </label><input type="text" name="nomeFuncionario" id="nomeFuncionario"  class="form-control" value="<?php echo $_SESSION['nomeFuncionario']; ?>"><br />
+                            <label for="cfpFuncionario">CPF:</label> <input type="text" name="cfpFuncionario" id="cpfFuncionario"  oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" class="form-control" value="<?php echo $_SESSION['cpfFuncionario']; ?>"><br />
+                            <label for="emailFuncionario">E-Mail:</label> <input type="email" name="emailFuncionario" id="emailFuncionario"  class="form-control" class="form-control" value="<?php echo $_SESSION['emailFuncionario']; ?>"><br />
+                            <label for="dataNascFuncionario">Data de Nascimento: </label> <input type="date" id="dataNascFuncionario" name="dataNascFuncionario"  class="form-control"><br />
+                            <label for="telefoneFuncionario">Telefone:</label><input type="text" name="telefoneFuncionario" id="telefoneFuncionario"  oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" class="form-control" value="<?php echo $_SESSION['telefoneFuncionario']; ?>"><br />
                             <label for="tipoTelFuncionario">Tipo do Telefone:</label>
                             <select name="tipoTelFuncionario" id="tipoTelFuncionario" class="form-control">
                                 <option value="1">Residencial</option>
                                 <option value="2">Celular</option>
                                 <option value="3">Comercial</option>
                             </select><br />
-                            <label for="cepFuncionario">CEP: </label><input type="text" name="cepFuncionario" id="cepFuncionario" required oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" class="form-control" value="<?php echo $_SESSION['cepFuncionario']; ?>"><br />
-                            <label for="logradouroFuncionario">Logradouro: </label> <input type="text" name="logradouroFuncionario" id="logradouroFuncionario" required class="form-control" value="<?php echo $_SESSION['logradouroFuncionario']; ?>"><br />
-                            <label for="numeroFuncionario">Número: </label> <input type="text" name="numeroFuncionario" id="numeroFuncionario" required oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" class="form-control" value="<?php echo $_SESSION['numeroFuncionario']; ?>"><br />
+                            <label for="cepFuncionario">CEP: </label><input type="text" name="cepFuncionario" id="cepFuncionario"  oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" class="form-control" value="<?php echo $_SESSION['cepFuncionario']; ?>"><br />
+                            <label for="logradouroFuncionario">Logradouro: </label> <input type="text" name="logradouroFuncionario" id="logradouroFuncionario"  class="form-control" value="<?php echo $_SESSION['logradouroFuncionario']; ?>"><br />
+                            <label for="numeroFuncionario">Número: </label> <input type="text" name="numeroFuncionario" id="numeroFuncionario"  oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" class="form-control" value="<?php echo $_SESSION['numeroFuncionario']; ?>"><br />
                             <label for="complementoFuncionario">Complemento: </label> <input type="text" name="complementoFuncionario" id="complementoFuncionario" class="form-control" value="<?php echo $_SESSION['complementoFuncionario']; ?>"><br />
-                            <label for="bairroFuncionario">Bairro: </label> <input type="text" name="bairroFuncionario" id="bairroFuncionario" required class="form-control" value="<?php echo $_SESSION['bairroFuncionario']; ?>"><br />
-                            <label for="cidadeFuncionario">Cidade: </label> <input type="text" name="cidadeFuncionario" name="cidadeFuncionario" required class="form-control" value="<?php echo $_SESSION['cidadeFuncionario']; ?>"><br />
+                            <label for="bairroFuncionario">Bairro: </label> <input type="text" name="bairroFuncionario" id="bairroFuncionario"  class="form-control" value="<?php echo $_SESSION['bairroFuncionario']; ?>"><br />
+                            <label for="cidadeFuncionario">Cidade: </label> <input type="text" name="cidadeFuncionario" name="cidadeFuncionario"  class="form-control" value="<?php echo $_SESSION['cidadeFuncionario']; ?>"><br />
                             <label for="estadoFuncionario">Estado:</label>
                             <select name="estadoFuncionario" id="estadoFuncionario" class="form-control">
                                 <option value="1" <?php echo $_SESSION['estadoFuncionario'] == 'Acre' ? 'selected' : ''; ?>>Acre</option>
@@ -268,3 +268,11 @@
 </body>
 
 </html>
+<?php
+    function mascara_string($mascara,$string){
+        $string = str_replace(" ","",$string);
+        for($i=0;$i<strlen($string);$i++){
+            $mascara[strpos($mascara,"#")] = $string[$i];
+        }
+        return $mascara;
+    }

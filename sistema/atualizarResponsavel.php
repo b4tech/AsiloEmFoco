@@ -2,11 +2,11 @@
 session_start();
 $idResponsavel = $_SESSION['idResponsavel'];
 $idLoginResponsavel = $_SESSION['idLoginResponsavel'];
-$idEnderecoResponsavel = $_SESSION['enderecoIdResponsavel'];
+$idEnderecoResponsavel = $_SESSION['idEnderecoResponsavel'];
 $idContatoResponsavel = $_SESSION['idContatoResponsavel'];
 
 //login
-$senha = $_POST['senhaAtualResponsavel'];
+$senha = $_SESSION['senhaResponsavel'];
 $novaSenha = $_POST['novaSenhaResponsavel'];
 $confirmaNovaSenha = $_POST['confirmaNovaSenhaResponsavel'];
 
@@ -27,8 +27,6 @@ $complemento = $_POST['complementoResponsavel'];
 $numero = $_POST['numeroResponsavel'];
 $cep = $_POST['cepResponsavel'];
 $bairro = $_POST['bairroResponsavel'];
-
-// estado
 $estado = $_POST['estadoResponsavel'];
 
 $connect = new mysqli('127.0.0.1', 'root', '', 'asiloemfoco');
@@ -40,10 +38,14 @@ if ($novaSenha != null) {
         die();
     }
 }
+if ($novaSenha == null && $confirmaNovaSenha == null) {
+    $novaSenha = $senha;
+    $confirmaNovaSenha = $senha;
+}
 
 try {
-    $query = mysqli_query($connect, "UPDATE login SET senha = '$novaSenha', confirmarSenha = '$confirmaNovaSenha' WHERE idLogin = $idLoginResponsavel");
-    $query = mysqli_query($connect, "UPDATE responsavel SET nome = '$nome', cpf = '$cpf', email = '$email' WHERE idResponsavel = $idResponsavel");
+    $query = mysqli_query($connect, "UPDATE login SET password = '$novaSenha', confirmPassword = '$confirmaNovaSenha' WHERE idLogin = $idLoginResponsavel");
+    $query = mysqli_query($connect, "UPDATE responsavel SET nome = '$nome', cpf = '$cpf', email = '$email', dataNasc = '$dataNasc' WHERE idResponsavel = $idResponsavel");
     $query = mysqli_query($connect, "UPDATE contato SET tipo = '$tipoTel', telefone = '$telefone'  WHERE idContato = $idContatoResponsavel");
     $query = mysqli_query($connect, "UPDATE endereco SET cidade = '$cidade', logradouro = '$logradouro', numero = '$numero', cep = '$cep', bairro = '$bairro', complemento = '$complemento', estadoId = $estado WHERE idEndereco = $idEnderecoResponsavel");
     // if () {
@@ -56,6 +58,9 @@ try {
 }
 
 echo "<script language='javascript' type='text/javascript'>alert('Responsável atualizado com sucesso!');</script>";
+
+echo $tipoTel;
+echo $idContatoResponsavel;
 
 // Voltar para a home
 session_destroy();

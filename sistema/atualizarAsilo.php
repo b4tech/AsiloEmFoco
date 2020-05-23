@@ -6,7 +6,7 @@ $idEnderecoAsilo = $_SESSION['enderecoIdAsilo'];
 $idContatoAsilo = $_SESSION['idContatoAsilo'];
 
 //login
-$senha = $_POST['senhaAtualAsilo'];
+$senha = $_SESSION['senhaAsilo'];
 $novaSenha = $_POST['novaSenhaAsilo'];
 $confirmaNovaSenha = $_POST['confirmaNovaSenhaAsilo'];
 
@@ -38,6 +38,10 @@ if ($novaSenha != null) {
         header("Location:start/config.php");
         die();
     }
+}
+if ($novaSenha == null && $confirmaNovaSenha == null) {
+    $novaSenha = $senha;
+    $confirmaNovaSenha = $senha;
 }
 
 try {
