@@ -39,28 +39,29 @@ if ($novaSenha != null) {
         die();
     }
 }
+
 if ($novaSenha == null && $confirmaNovaSenha == null) {
     $novaSenha = $senha;
     $confirmaNovaSenha = $senha;
 }
 
 try {
-    $query = mysqli_query($connect, "UPDATE login SET senha = '$novaSenha', confirmarSenha = '$confirmaNovaSenha' WHERE idLogin = $idLoginAsilo");
-    $query = mysqli_query($connect, "UPDATE asilo SET razaoSocial = '$razaoSocial', cnpj = '$cnpj', email = '$email' WHERE idAsilo = $idAsilo");
-    $query = mysqli_query($connect, "UPDATE contato SET tipo = '$tipoTel', telefone = '$telefone'  WHERE idContato = $idContatoAsilo");
-    $query = mysqli_query($connect, "UPDATE endereco SET cidade = '$cidade', logradouro = '$logradouro', numero = '$numero', cep = '$cep', bairro = '$bairro', complemento = '$complemento', estadoId = $estado WHERE idEndereco = $idEnderecoAsilo");
-    // if () {
-    //     echo "Record updated successfully";
-    // } else {
-    //     echo "Error updating record: " . mysqli_error($connect);
-    // }
+    try {
+        $query = mysqli_query($connect, "UPDATE login SET password = '$novaSenha', confirmPassword = '$confirmaNovaSenha' WHERE idLogin = $idLoginAsilo");
+        $query = mysqli_query($connect, "UPDATE asilo SET razaoSocial = '$razaoSocial', cnpj = '$cnpj', email = '$email' WHERE idAsilo = $idAsilo");
+        $query = mysqli_query($connect, "UPDATE contato SET tipo = '$tipoTel', telefone = '$telefone'  WHERE idContato = $idContatoAsilo");
+        $query = mysqli_query($connect, "UPDATE endereco SET cidade = '$cidade', logradouro = '$logradouro', numero = '$numero', cep = '$cep', bairro = '$bairro', complemento = '$complemento', estadoId = $estado WHERE idEndereco = $idEnderecoAsilo");
+        // if () {
+        //     echo "Record updated successfully";
+        // } else {
+        //     echo "Error updating record: " . mysqli_error($connect);
+        // }
+        // Voltar para a home
+        echo "<script language='javascript' type='text/javascript'>alert('Asilo atualizado com sucesso!');javascript:window.location='login.html';</script>";
+        session_destroy();
+    } catch (\Throwable $th) {
+        echo $th;
+    }
 } catch (\Throwable $th) {
-    echo $th;
+    echo "<script language='javascript' type='text/javascript'>alert('Erro ao atualizar cadastro. Tente novamente.');</script>";
 }
-
-echo "<script language='javascript' type='text/javascript'>alert('Asilo atualizado com sucesso!');</script>";
-
-// Voltar para a home
-session_destroy();
-
-header("Location:login.html");

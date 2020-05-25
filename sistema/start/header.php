@@ -33,7 +33,6 @@ $perfil = $_SESSION['perfil'];
                         <a class="nav-link" href="./sobreSistema.php">Sobre</a>
                     </li>
                     <li class="nav-item">
-                        <!-- <a class="nav-link" href="#">Mais</a> -->
                         <div class="dropdown show">
                             <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <?php

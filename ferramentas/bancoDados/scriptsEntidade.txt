@@ -179,3 +179,5 @@ insert into `estado` (`sigla`, `nome`) values ('SC', 'Santa Catarina');
 insert into `estado` (`sigla`, `nome`) values ('SP', 'São Paulo');
 insert into `estado` (`sigla`, `nome`) values ('SE', 'Sergipe');
 insert into `estado` (`sigla`, `nome`) values ('TO', 'Tocatins');
+
+insert into `login` (`username`, `password`, `confirmPassword`, `perfil`) values ('adm', 'adm', 'adm', 0);

@@ -2,13 +2,12 @@
 <html lang="pt-BR">
 
 <head>
-
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SGA - Sobre</title>
+    <title>SGA - Gerenciamento de Idosos</title>
 
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -21,7 +20,7 @@
 <body>
 
     <!-- Navigation -->
-    <?php include './header.php'; ?>
+    <?php include 'header.php'; ?>
 
     <?php $perfil = $_SESSION['perfil'];
 
@@ -73,14 +72,14 @@
     <div class="container">
         <div class="row">
             <!-- Menu lateral -->
-            <?php include './nav-left.php'; ?>
+            <?php include 'nav-left.php'; ?>
 
 
         </div>
     </div>
 
     <!-- Footer -->
-    <?php include './footer.php'; ?>
+    <?php include 'footer.php'; ?>
     <!-- Bootstrap core JavaScript -->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>

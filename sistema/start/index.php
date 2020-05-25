@@ -16,14 +16,6 @@
     <!-- Custom styles for this template -->
     <link href="css/shop-homepage.css" rel="stylesheet">
 
-    <style>
-        .foto-perfil {
-            border-radius: 200px;
-            width: 250px;
-            height: 250px;
-        }
-    </style>
-
 </head>
 
 <body>
@@ -82,56 +74,8 @@
 
         <div class="row">
 
-            <div class="col-lg-3">
-
-                <h1 class="my-4"><img class="foto-perfil" src="http://placehold.it/250x250" alt=""></h1>
-                <h1>
-                    <?php
-                    switch ($perfil) {
-                        case '0':
-                            echo 'Administrador';
-                            break;
-                        case '1':
-                            echo $_SESSION['razaoSocial'];
-                            break;
-                        case '2':
-                            echo $_SESSION['nomeResponsavel'];
-                            break;
-                        case '3':
-                            echo $_SESSION['nomeFuncionario'];
-                            break;
-                    } ?>
-                </h1>
-                <div class="mainAdmin">
-                    <div class="list-group">
-                        <a href="#" class="list-group-item">Category 1</a>
-                        <a href="#" class="list-group-item">Category 2</a>
-                        <a href="#" class="list-group-item">Category 3</a>
-                    </div>
-                </div>
-                <div class="mainAsilo">
-                    <div class="list-group">
-                        <a href="#" class="list-group-item">Cadastrar Idoso</a>
-                        <a href="#" class="list-group-item">Cadastrar Prontuário</a>
-                        <a href="#" class="list-group-item">Cadastrar Agenda</a>
-                    </div>
-                </div>
-                <div class="mainResponsavel">
-                    <div class="list-group">
-                        <a href="#" class="list-group-item">Cadastrar Idoso</a>
-                        <a href="#" class="list-group-item">Cadastrar Prontuário</a>
-                        <a href="#" class="list-group-item">Cadastrar Agenda</a>
-                    </div>
-                </div>
-                <div class="mainFuncionario">
-                    <div class="list-group">
-                        <a href="#" class="list-group-item">Category 1</a>
-                        <a href="#" class="list-group-item">Category 2</a>
-                        <a href="#" class="list-group-item">Category 3</a>
-                    </div>
-                </div>
-
-            </div>
+            <!-- Menu lateral -->
+            <?php include './nav-left.php'; ?>
 
             <div class="col-lg-9 my-4">
                 <!-- PERFIL: ADMINISTRADOR -->
