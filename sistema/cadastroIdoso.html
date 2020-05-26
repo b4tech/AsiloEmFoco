@@ -1,0 +1,66 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <title>SGA - Cadastro de Idoso</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+    <link rel="stylesheet" href="../assets/css/main.css" />
+    <link rel="shortcut icon" href="../ferramentas/graficos/ico.png">
+    <!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+</head>
+
+<body id="top">
+
+    <!-- Header -->
+    <header id="header">
+        <img src="../ferramentas/graficos/LogoAsilo-AJUSTADA.png" alt="" width="200">
+
+        <h2>Sistema<br> Gerenciador de <strong>Asilos</strong></h2>
+        <h4>Cadastro de Responsável</h4>
+    </header>
+
+    <!-- Main -->
+    <div id="main">
+        <div class="col-md-6 col-sm-12">
+            <section>
+                <form action="cadastroIdoso.php" method="POST">
+                    <div class="responsavel" id="responsavel">
+                        <label for="nome">Nome completo:</label> <input type="text" id="nomeIdoso" name="nomeIdoso" required><br />
+                        <label for="cpf">CPF: </label> <input type="text" id="cpfIdoso" name="cpfIdoso" required oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"><br />
+                        <label for="dataNasc">Data de Nascimento: </label> <input type="date" id="dataNascIdoso" name="dataNascIdoso" required ><br /><br />
+                    </div>
+                    <center>
+                        <input type="button" class="submit" value="Voltar" class="special" onclick="location.href='login.html';" />
+                        <input type="submit" value="Cadastrar" name="cadastrar" id="cadastrar">
+                    </center>
+                </form>
+            </section>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer id="footer">
+        <ul class="icons">
+            <li><a href="#" class="icon fa-globe"><span class="label"></span></a></li>
+            <li><a href="#" class="icon fa-android"><span class="label"></span></a></li>
+            <li><a href="#" class="icon fa-envelope-o"><span class="label"></span></a></li>
+        </ul>
+        <ul class="copyright">
+            <li>&copy; B4 Technologies</li>
+            <li>Todos os direitos reservados.</li>
+        </ul>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.poptrox.min.js"></script>
+    <script src="assets/js/skel.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+    <script src="assets/js/main.js"></script>
+
+</body>
+
+</html>
