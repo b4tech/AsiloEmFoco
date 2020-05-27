@@ -137,19 +137,6 @@ if (isset($entrar)) {
         $_SESSION['cnpj'] = $arrayAsilo['cnpj'];
         $_SESSION['emailAsilo'] = $arrayAsilo['email'];
 
-        // echo $_SESSION['cidade'] ."<br />";
-        // echo $_SESSION['logradouro'] ."<br />";
-        // echo $_SESSION['numero'] ."<br />";
-        // echo $_SESSION['cep'] ."<br />";
-        // echo $_SESSION['bairro'] ."<br />";
-        // echo $_SESSION['complemento'] ."<br />";
-        // echo $_SESSION['sigla'] ."<br />";
-        // echo $_SESSION['estado'] ."<br />";
-        // echo $_SESSION['tipoTel'] ."<br />";
-        // echo $_SESSION['telefone'] ."<br />";
-
-        //print_r($_SESSION);
-        //echo $_SESSION['emailAsilo'];
         header("Location:start/index.php");
 
         break;
