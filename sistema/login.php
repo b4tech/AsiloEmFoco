@@ -198,17 +198,6 @@ if (isset($entrar)) {
         $_SESSION['dataNascResponsavel'] = $arrayResponsavel['dataNasc'];
         $_SESSION['idosoId'] = $arrayResponsavel['idosoId'];
 
-        // Tabela Idoso 
-        $selectIdoso = mysqli_query($connect, "SELECT * FROM `idoso`");
-        // Comando para criar matriz de dados de acordo com o select acima
-        $arrayIdoso = mysqli_fetch_assoc($selectIdoso);
-
-        // Tabela Idoso
-        $_SESSION['idIdoso'] = $arrayIdoso['idIdoso'];
-        $_SESSION['dataNascIdoso'] = $arrayIdoso['dataNasc'];
-        $_SESSION['cpfIdoso'] = $arrayIdoso['cpf'];
-        $_SESSION['nomeIdoso'] = $arrayIdoso['nome'];
-        $_SESSION['responsavelId'] = $arrayIdoso['responsavelId'];
 
         // echo $_SESSION['dataNascResponsavel'];
 
