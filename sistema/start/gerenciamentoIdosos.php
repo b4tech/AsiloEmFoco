@@ -90,7 +90,7 @@
             <?php include 'nav-left.php'; ?>
 
             <div class="col-lg-9 my-4">
-                <button type="button" class="btn btn-primary" style="margin-bottom: 10px;" onclick="location.href='cadastroIdoso.html';">Novo Cadastro</button>
+                <button type="button" class="btn btn-primary" style="margin-bottom: 10px;" onclick="location.href='cadastroIdoso.php';">Novo Cadastro</button>
                 <div class="main">
                     <table class="table">
                         <thead class="thead-dark">
@@ -116,8 +116,8 @@
                                         <td><?= $arrayIdoso['cpf'] ?></td>
                                         <td><?= $arrayIdoso['dataNasc'] ?></td>
                                         <td>
-                                            <button style="font-size:12px">Editar <i class="fas fa-user-edit"></i></button>
-                                            <button style="font-size:12px">Excluir <i class="fa fa-trash"></i></button>
+                                            <button style="font-size:12px" onclick="location.href='atualizarIdoso.php?edit=<?php echo $arrayIdoso['idIdoso'];?>'">Editar <i class="fas fa-user-edit"></i></button>
+                                            <button style="font-size:12px" onclick="location.href='deleteIdoso.php?delete=<?php echo $arrayIdoso['idIdoso']; ?>'">Excluir <i class="fa fa-trash"></i></button>
                                         </td>
                                     </tr>
                                 </tbody>
