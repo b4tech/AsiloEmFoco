@@ -54,7 +54,6 @@ CREATE TABLE IF NOT EXISTS `responsavel`(
     `email` VARCHAR (45) NOT NULL,
     `dataNasc` DATE NOT NULL,
     `contatoId` INT (8) NOT NULL,
-    `idosoId` INT (8),
     `enderecoId` INT (8) NOT NULL,
     `asiloId` INT (8),
     `loginId` int(8)  NOT NULL,
@@ -85,8 +84,9 @@ CREATE TABLE IF NOT EXISTS `formacaoFuncionario` (
 CREATE TABLE IF NOT EXISTS `prontuario` (
     `idProntuario` int(9) AUTO_INCREMENT NOT NULL,
     `descricao` varchar(150) NOT NULL,
+    `data` date NOT NULL,
+    `hora` time NOT NULL,
     `idosoId` int(8)  NOT NULL,
-    `agendaId` int(8)  NOT NULL,
     PRIMARY KEY (`idProntuario`)
 ); 
 
@@ -98,14 +98,6 @@ CREATE TABLE IF NOT EXISTS `avaliacao` (
     PRIMARY KEY (`idAvaliacao`)
 );
 
-CREATE TABLE IF NOT EXISTS `agenda` (
-    `idAgenda` int(9) AUTO_INCREMENT NOT NULL,
-    `data` date NOT NULL,
-    `hora` time NOT NULL,
-    `prontuarioId` int(8)  NOT NULL,
-    PRIMARY KEY (`idAgenda`)
-);
-
 CREATE TABLE IF NOT EXISTS `login` (
     `idLogin` int(9) AUTO_INCREMENT NOT NULL,
     `username` varchar(20) NOT NULL,
@@ -114,9 +106,6 @@ CREATE TABLE IF NOT EXISTS `login` (
     `perfil` int(1) NOT NULL,
     PRIMARY KEY (`idLogin`)
 );
-
-ALTER TABLE agenda
-ADD FOREIGN KEY (`prontuarioId`) REFERENCES prontuario(idProntuario) ON DELETE CASCADE;
 
 ALTER TABLE asilo
 ADD FOREIGN KEY (`contatoId`) REFERENCES contato(idContato) ON DELETE CASCADE,
@@ -141,16 +130,13 @@ ALTER TABLE idoso
 ADD FOREIGN KEY (`responsavelId`) REFERENCES responsavel(idResponsavel) ON DELETE CASCADE;
 
 ALTER TABLE prontuario
-ADD FOREIGN KEY (`agendaId`) REFERENCES agenda(idAgenda) ON DELETE CASCADE,
 ADD FOREIGN KEY (`idosoId`) REFERENCES idoso(idIdoso) ON DELETE CASCADE;
 
 ALTER TABLE responsavel
 ADD FOREIGN KEY (`contatoId`) REFERENCES contato(idContato) ON DELETE CASCADE,
-ADD FOREIGN KEY (`idosoId`) REFERENCES idoso(idIdoso) ON DELETE CASCADE,
 ADD FOREIGN KEY (`enderecoId`) REFERENCES endereco(idEndereco) ON DELETE CASCADE,
 ADD FOREIGN KEY (`asiloId`) REFERENCES asilo(idAsilo) ON DELETE CASCADE,
 ADD FOREIGN KEY (`loginId`) REFERENCES login(idLogin) ON DELETE CASCADE;
-
 
 insert into `estado` (`sigla`, `nome`) values ('AC', 'Acre');
 insert into `estado` (`sigla`, `nome`) values ('AL', 'Alagoas');

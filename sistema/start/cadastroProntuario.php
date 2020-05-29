@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>SGA - Cadastro de Idoso</title>
+    <title>SGA - Cadastro de Prontuário</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
@@ -24,14 +24,14 @@
     <div id="main">
         <div class="container">
             <section>
-                <form action="insertIdoso.php" method="POST">
-                    <div class="form-group margin" id="responsavel">
-                        <label for="nome">Nome completo:</label> <input class="form-control" type="text" id="nomeIdoso" name="nomeIdoso" required><br />
-                        <label for="cpf">CPF: </label> <input class="form-control" type="text" id="cpfIdoso" name="cpfIdoso" required oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"><br />
-                        <label for="dataNasc">Data de Nascimento: </label> <input class="form-control" type="date" id="dataNascIdoso" name="dataNascIdoso" required><br /><br />
+                <form action="insertProntuario.php" method="POST">
+                    <div class="form-group margin" id="prontuario">
+                        <label for="data">Data: </label> <input class="form-control" type="date" id="dataProntuario" name="dataProntuario" required><br />
+                        <label for="hora">Hora: </label> <input class="form-control" type="time" id="horaProntuario" name="horaProntuario" required><br />
+                        <label for="descricao">Descrição: </label> <input class="form-control" type="text" id="descricaoProntuario" name="descricaoProntuario" required><br /><br />
                     </div>
                     <center>
-                        <input type="button" class="submit" value="Voltar" class="special" onclick="location.href='gerenciamentoIdosos.php';" />
+                        <input type="button" class="submit" value="Voltar" class="special" onclick="location.href='gerenciamentoProntuarios.php';" />
                         <input type="submit" value="Cadastrar" name="cadastrar" id="cadastrar">
                     </center>
                 </form>

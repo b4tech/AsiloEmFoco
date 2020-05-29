@@ -58,7 +58,7 @@ if ($row[0] > 0) {
   $ultimoIdEndereco = mysqli_insert_id($connect);
 
   $estadoSQL4 = $connect->prepare(
-    "INSERT INTO `responsavel`(`nome`, `cpf`, `email`, `dataNasc`, `contatoId`, `idosoId`, `enderecoId`, `asiloId`, `loginId`) VALUES ('$nome', '$cpf', '$email', '$dataNasc', '$ultimoIdContato', null, '$ultimoIdEndereco',null, '$ultimoIdLogin');"
+    "INSERT INTO `responsavel`(`nome`, `cpf`, `email`, `dataNasc`, `contatoId`, `enderecoId`, `asiloId`, `loginId`) VALUES ('$nome', '$cpf', '$email', '$dataNasc', '$ultimoIdContato', '$ultimoIdEndereco',null, '$ultimoIdLogin');"
   );
 
   $estadoSQL4->execute();

@@ -45,32 +45,36 @@
                 <a href="gerenciamentoResponsaveis.php" class="list-group-item">Gerenciamento de Responsáveis</a>
                 <a href="gerenciamentoIdosos.php" class="list-group-item">Gerenciamento de Idosos</a>
                 <a href="gerenciamentoProntuarios.php" class="list-group-item">Gerenciamento de Prontuários</a>
-                <a href="gerenciamentoAgendas.php" class="list-group-item">Gerenciamento de Agendas</a>
                 <a href="gerenciamentoFuncionarios.php" class="list-group-item">Gerenciamento de Funcionários</a>
             </div>
         </div>
         <div class="mainAsilo">
             <div class="list-group">
+                <a href="gerenciamentoFuncionarios.php" class="list-group-item">Gerenciamento de Funcionários</a>
+                <a href="gerenciamentoResponsaveis.php" class="list-group-item">Gerenciamento de Responsáveis</a>
                 <a href="gerenciamentoIdosos.php" class="list-group-item">Gerenciamento de Idosos</a>
                 <a href="gerenciamentoProntuarios.php" class="list-group-item">Gerenciamento de Prontuários</a>
-                <a href="gerenciamentoAgendas.php" class="list-group-item">Gerenciamento de Agendas</a>
-                <a href="gerenciamentoFuncionarios.php" class="list-group-item">Gerenciamento de Funcionários</a>
             </div>
         </div>
         <div class="mainResponsavel">
             <div class="list-group">
                 <a href="gerenciamentoIdosos.php" class="list-group-item">Gerenciamento de Idosos</a>
-                <a href="gerenciamentoAgendas.php" class="list-group-item">Gerenciamento de Agendas</a>
+                <a href="gerenciamentoProntuarios.php" class="list-group-item">Gerenciamento de Prontuários</a>
             </div>
         </div>
         <div class="mainFuncionario">
             <div class="list-group">
                 <a href="gerenciamentoIdosos.php" class="list-group-item">Gerenciamento de Idosos</a>
                 <a href="gerenciamentoProntuarios.php" class="list-group-item">Gerenciamento de Prontuários</a>
-                <a href="gerenciamentoAgendas.php" class="list-group-item">Gerenciamento de Agendas</a>
             </div>
         </div>
-
+        <br />
+        <div class="container bg-dark">
+            <p class="m-0 text-center text-white">
+                &copy; B4 Technologies <br />
+                Todos os direitos reservados
+            </p>
+        </div>
     </div>
 </body>
 

@@ -23,21 +23,39 @@
     <!-- Navigation -->
     <?php include 'header.php'; ?>
 
-    <?php
-
+    <?php 
+    
+    $perfil = $_SESSION['perfil'];
     $responsavelId = $_SESSION['idResponsavel'];
+    $asiloId = $_SESSION['idAsilo'];
 
     $connect = new mysqli('127.0.0.1', 'root', '', 'asiloemfoco');
 
     // Select Idoso
-    $selectIdoso = mysqli_query($connect, "SELECT * FROM `idoso` WHERE responsavelId = '$responsavelId'");
+    switch ($perfil) {
+        case '0':
+            $selectIdoso = mysqli_query($connect, "SELECT * FROM `idoso`");
+            break;
+        case '1':
+            $selectIdoso = mysqli_query($connect, "SELECT * FROM `idoso`, `responsavel` WHERE idoso.responsavelId = '$responsavelId' AND responsavel.asiloId = '$asiloId'");
+            break;
+        case '2':
+            $selectIdoso = mysqli_query($connect, "SELECT * FROM `idoso` WHERE responsavelId = '$responsavelId'");
+            break;
+        case '3':
+            $selectIdoso = mysqli_query($connect, "SELECT * FROM `asilo`, `responsavel`, `funcionario` WHERE idoso.responsavelId = '$responsavelId' AND responsavel.asiloId = '$asiloId' AND funcionario.asiloId = '$asiloId'");
+            break;
+    }
+
     // Comando para criar matriz de dados de acordo com o select acima
     $arrayIdoso = mysqli_fetch_assoc($selectIdoso); // cria a instrução SQL que vai selecionar os dados
     $total = mysqli_num_rows($selectIdoso);
 
+    echo $asiloId;
+
     ?>
 
-    <?php $perfil = $_SESSION['perfil'];
+    <?php
 
     switch ($perfil) {
         case '0':
@@ -116,7 +134,7 @@
                                         <td><?= $arrayIdoso['cpf'] ?></td>
                                         <td><?= $arrayIdoso['dataNasc'] ?></td>
                                         <td>
-                                            <button style="font-size:12px" onclick="location.href='atualizarIdoso.php?edit=<?php echo $arrayIdoso['idIdoso'];?>'">Editar <i class="fas fa-user-edit"></i></button>
+                                            <button style="font-size:12px" onclick="location.href='atualizarIdoso.php?edit=<?php echo $arrayIdoso['idIdoso']; ?>'">Editar <i class="fas fa-user-edit"></i></button>
                                             <button style="font-size:12px" onclick="location.href='deleteIdoso.php?delete=<?php echo $arrayIdoso['idIdoso']; ?>'">Excluir <i class="fa fa-trash"></i></button>
                                         </td>
                                     </tr>
@@ -132,12 +150,6 @@
             </div>
         </div>
     </div>
-
-    <!-- Footer -->
-    <?php include 'footer.php'; ?>
-    <!-- Bootstrap core JavaScript -->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
 </body>
 

@@ -1,7 +1,7 @@
 <?php $id = $_GET['edit'];
-    $connect = new mysqli("localhost", "root", "", "asiloemfoco");
-    $query = mysqli_query($connect, "SELECT * FROM idoso WHERE idIdoso = $id");
-    $arrayIdoso = mysqli_fetch_assoc($query);
+$connect = new mysqli("localhost", "root", "", "asiloemfoco");
+$query = mysqli_query($connect, "SELECT * FROM idoso WHERE idIdoso = $id");
+$arrayIdoso = mysqli_fetch_assoc($query);
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -48,14 +48,8 @@
                     </form>
                 </section>
             </div>
-        </div>      
+        </div>
     </center>
-    <!-- /.container -->
-    <!-- Footer -->
-    <?php include './footer.php'; ?>
-    <!-- Bootstrap core JavaScript -->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>

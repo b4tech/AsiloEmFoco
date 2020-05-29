@@ -78,7 +78,7 @@ if (isset($entrar)) {
         $_SESSION['razaoSocial'] = $arrayAsilo['razaoSocial'];
         $_SESSION['cnpj'] = $arrayAsilo['cnpj'];
         $_SESSION['emailAsilo'] = $arrayAsilo['email'];
-        
+
         header("Location:start/index.php");
 
         break;
@@ -197,9 +197,6 @@ if (isset($entrar)) {
         $_SESSION['emailResponsavel'] = $arrayResponsavel['email'];
         $_SESSION['dataNascResponsavel'] = $arrayResponsavel['dataNasc'];
         $_SESSION['idosoId'] = $arrayResponsavel['idosoId'];
-
-
-        // echo $_SESSION['dataNascResponsavel'];
 
         header("Location:start/index.php");
 
