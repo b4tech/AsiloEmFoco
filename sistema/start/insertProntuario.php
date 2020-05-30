@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-$idIdoso = $_SESSION['idIdoso'];
+$idIdoso = $_POST['nomeIdosoProntuario'];
 $data = $_POST['dataProntuario'];
 $hora = $_POST['horaProntuario'];
 $descricao = $_POST['descricaoProntuario'];

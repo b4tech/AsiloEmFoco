@@ -51,8 +51,6 @@
     $arrayIdoso = mysqli_fetch_assoc($selectIdoso); // cria a instrução SQL que vai selecionar os dados
     $total = mysqli_num_rows($selectIdoso);
 
-    echo $asiloId;
-
     ?>
 
     <?php

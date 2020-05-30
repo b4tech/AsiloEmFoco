@@ -25,15 +25,19 @@
 
     <?php
 
-    $idosoId = $_SESSION['idIdoso'];
+    $idResponsavel = $_SESSION['idResponsavel'];
 
     $connect = new mysqli('127.0.0.1', 'root', '', 'asiloemfoco');
 
-    // Select Idoso
-    $selectProntuario = mysqli_query($connect, "SELECT * FROM `prontuario` WHERE idosoId = '$idosoId'");
+    $selectIdoso = mysqli_query($connect, "SELECT nome FROM `idoso` WHERE responsavelId = '$idResponsavel'");
+    $arrayIdoso = mysqli_fetch_assoc($selectIdoso);
+
+    // Select prontuario
+    $selectProntuario = mysqli_query($connect, "SELECT * FROM `prontuario`");
     // Comando para criar matriz de dados de acordo com o select acima
     $arrayProntuario = mysqli_fetch_assoc($selectProntuario); // cria a instrução SQL que vai selecionar os dados
     $total = mysqli_num_rows($selectProntuario);
+    
 
     ?>
 
@@ -96,6 +100,7 @@
                         <thead class="thead-dark">
                             <tr>
                                 <th scope="col">#</th>
+                                <th scope="col">Idoso</th>
                                 <th scope="col">Data</th>
                                 <th scope="col">Hora</th>
                                 <th scope="col">Descrição</th>
@@ -105,27 +110,7 @@
 
                         <?php
                         // se o número de resultados for maior que zero, mostra os dados
-                        if ($total > 0) {
-                            // inicia o loop que vai mostrar todos os dados
-                            do {
-                        ?>
-                                <tbody>
-                                    <tr>
-                                        <th scope="row"><?= $arrayProntuario['idProntuario'] ?></th>
-                                        <td><?= $arrayProntuario['data'] ?></td>
-                                        <td><?= $arrayProntuario['hora'] ?></td>
-                                        <td><?= $arrayProntuario['descricao'] ?></td>
-                                        <td>
-                                            <button style="font-size:12px" onclick="location.href='atualizarProntuario.php?edit=<?php echo $arrayProntuario['idProntuario']; ?>'">Editar <i class="fas fa-user-edit"></i></button>
-                                            <button style="font-size:12px" onclick="location.href='deleteProntuario.php?delete=<?php echo $arrayProntuario['idProntuario']; ?>'">Excluir <i class="fa fa-trash"></i></button>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                        <?php
-                                // finaliza o loop que vai mostrar os dados
-                            } while ($arrayProntuario = mysqli_fetch_assoc($selectProntuario));
-                            // fim do if 
-                        }
+                        mostrarProntuario();
                         ?>
                     </table>
                 </div>
@@ -137,3 +122,30 @@
 </body>
 
 </html>
+<?php
+    function mostrarProntuario() {
+        global $total, $arrayProntuario, $selectProntuario, $arrayIdoso;
+        if ($total > 0) {
+            // inicia o loop que vai mostrar todos os dados
+            do {
+        ?>
+                <tbody>
+                    <tr>
+                        <th scope="row"><?= $arrayProntuario['idProntuario'] ?></th>
+                        <td><?= $arrayIdoso['nome'] ?></td>
+                        <td><?= $arrayProntuario['data'] ?></td>
+                        <td><?= $arrayProntuario['hora'] ?></td>
+                        <td><?= $arrayProntuario['descricao'] ?></td>
+                        <td>
+                            <button style="font-size:12px" onclick="location.href='atualizarProntuario.php?edit=<?php echo $arrayProntuario['idProntuario']; ?>'">Editar <i class="fas fa-user-edit"></i></button>
+                            <button style="font-size:12px" onclick="location.href='deleteProntuario.php?delete=<?php echo $arrayProntuario['idProntuario']; ?>'">Excluir <i class="fa fa-trash"></i></button>
+                        </td>
+                    </tr>
+                </tbody>
+        <?php
+                // finaliza o loop que vai mostrar os dados
+            } while ($arrayProntuario = mysqli_fetch_assoc($selectProntuario));
+            // fim do if 
+        }
+    }
+?>

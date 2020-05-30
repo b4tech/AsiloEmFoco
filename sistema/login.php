@@ -181,7 +181,7 @@ if (isset($entrar)) {
         $_SESSION['complementoResponsavel'] = $arrayEndereco['complemento'];
 
         // tabela estado
-        $_SESSION['idEstadoResponsavel'] = $_SESSION['idEstado'];
+        $_SESSION['idEstadoResponsavel'] = $arrayEstado['idEstado'];
         $_SESSION['siglaResponsavel'] = $arrayEstado['sigla'];
         $_SESSION['estadoResponsavel'] = $arrayEstado['nome'];
 
@@ -196,7 +196,6 @@ if (isset($entrar)) {
         $_SESSION['cpfResponsavel'] = $arrayResponsavel['cpf'];
         $_SESSION['emailResponsavel'] = $arrayResponsavel['email'];
         $_SESSION['dataNascResponsavel'] = $arrayResponsavel['dataNasc'];
-        $_SESSION['idosoId'] = $arrayResponsavel['idosoId'];
 
         header("Location:start/index.php");
 

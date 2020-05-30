@@ -20,12 +20,35 @@
     </style>
     <!-- Header -->
     <?php include './header.php'; ?>
+    <?php
+    $idResponsavel = $_SESSION['idResponsavel'];
+    $connect = new mysqli("localhost", "root", "", "asiloemfoco");
+    $selectIdoso = mysqli_query($connect, "SELECT idIdoso, nome FROM `idoso` WHERE responsavelId = '$idResponsavel'");
+    $arrayIdoso = mysqli_fetch_assoc($selectIdoso);
+    $total = mysqli_num_rows($selectIdoso);
+    ?>
     <!-- Main -->
     <div id="main">
         <div class="container">
             <section>
                 <form action="insertProntuario.php" method="POST">
                     <div class="form-group margin" id="prontuario">
+                        <label for="nomeIdosoProntuario">Idoso:</label><br />
+                        <select class="form-control" name="nomeIdosoProntuario" id="nomeIdosoProntuario">
+                        <?php
+                        // se o número de resultados for maior que zero, mostra os dados
+                        if ($total > 0) {
+                            // inicia o loop que vai mostrar todos os dados
+                            do {
+                        ?>
+                            <option value="<?php echo $arrayIdoso['idIdoso']; ?>"><?php echo $arrayIdoso['nome']; ?></option>
+                        <?php
+                                // finaliza o loop que vai mostrar os dados
+                            } while ($arrayIdoso = mysqli_fetch_assoc($selectIdoso));
+                            // fim do if 
+                        }
+                        ?>
+                        </select><br />
                         <label for="data">Data: </label> <input class="form-control" type="date" id="dataProntuario" name="dataProntuario" required><br />
                         <label for="hora">Hora: </label> <input class="form-control" type="time" id="horaProntuario" name="horaProntuario" required><br />
                         <label for="descricao">Descrição: </label> <input class="form-control" type="text" id="descricaoProntuario" name="descricaoProntuario" required><br /><br />
