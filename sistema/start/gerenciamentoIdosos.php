@@ -114,7 +114,7 @@
                                 <th scope="col">#</th>
                                 <th scope="col">Nome</th>
                                 <th scope="col">CPF</th>
-                                <th scope="col">Data de Nascimento</th>
+                                <th scope="col">Nascimento</th>
                                 <th scope="col">Opções</th>
                             </tr>
                         </thead>

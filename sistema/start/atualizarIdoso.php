@@ -1,4 +1,6 @@
-<?php $id = $_GET['edit'];
+<?php 
+
+$id = $_GET['edit'];
 $connect = new mysqli("localhost", "root", "", "asiloemfoco");
 $query = mysqli_query($connect, "SELECT * FROM idoso WHERE idIdoso = $id");
 $arrayIdoso = mysqli_fetch_assoc($query);
@@ -13,7 +15,7 @@ $arrayIdoso = mysqli_fetch_assoc($query);
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SGA - Configurações</title>
+    <title>SGA - Atualizar Idoso</title>
 
     <link rel="shortcut icon" href="/asiloemfoco/ferramentas/graficos/ico.png">
 
