@@ -48,10 +48,10 @@ if ($row[0] > 0) {
     $ultimoIdFormacaoFuncionario = mysqli_insert_id($connect);
 
     if ($queryFuncionario = mysqli_query($connect, "INSERT INTO `funcionario`(`nome`, `cpf`, `email`, `dataNasc`, `contatoId`, `enderecoId`, `asiloId`, `loginId`, `formacaoId`) VALUES ('$nome', '$cpf', '$email', '$dataNasc', '$ultimoIdContato', '$ultimoIdEndereco',$idAsilo, '$ultimoIdLogin', '$ultimoIdFormacaoFuncionario')")) {
-        echo "<script language='javascript' type='text/javascript'>alert('Funcionário cadastrado com sucesso!');window.location.href='./start/gerenciamentoFuncionarios.php'</script>";
+        echo "<script language='javascript' type='text/javascript'>alert('Funcionário cadastrado com sucesso!');window.location.href='gerenciamentoFuncionarios.php'</script>";
         die();
     } else {
-        echo "<script language='javascript' type='text/javascript'>alert('Não foi possível cadastrar esse funcionário');window.location.href='./start/gerenciamentoFuncionarios.php'</script>";
+        echo "<script language='javascript' type='text/javascript'>alert('Não foi possível cadastrar esse funcionário');window.location.href='gerenciamentoFuncionarios.php'</script>";
         die();
     }
 }
