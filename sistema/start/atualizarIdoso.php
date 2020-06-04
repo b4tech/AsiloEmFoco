@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 $id = $_GET['edit'];
 $connect = new mysqli("localhost", "root", "", "asiloemfoco");
@@ -17,7 +17,7 @@ $arrayIdoso = mysqli_fetch_assoc($query);
 
     <title>SGA - Atualizar Idoso</title>
 
-    <link rel="shortcut icon" href="/asiloemfoco/ferramentas/graficos/ico.png">
+    <link rel="shortcut icon" href="../../ferramentas/graficos/ico.png">
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 

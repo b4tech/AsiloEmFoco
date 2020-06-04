@@ -12,7 +12,7 @@ $contatoId = $arrayFuncionario['contatoId'];
 
 $enderecoId = $arrayFuncionario['enderecoId'];
 
-$formacaoId = $arrayFuncionario['formacaoId'] ;
+$formacaoId = $arrayFuncionario['formacaoId'];
 
 $selectLogin = mysqli_query($connect, "SELECT `password` FROM `login` WHERE idLogin = '$loginId'");
 $arrayLogin = mysqli_fetch_assoc($selectLogin);
@@ -64,10 +64,11 @@ $arrayEstado = mysqli_fetch_assoc($selectEstado);
     <!-- Navigation -->
     <?php include './header.php'; ?>
     <?php
-        $_SESSION['idContatoFuncionario'] = $contatoId;
-        $_SESSION['idLoginFuncionario'] = $loginId;
-        $_SESSION['idEnderecoFuncionario'] = $enderecoId;
-        $_SESSION['idFormacaoFuncionario'] = $arrayFormacao['tipoFormacao'];
+    $_SESSION['idFuncionario'] = $id;
+    $_SESSION['idContatoFuncionario'] = $contatoId;
+    $_SESSION['idLoginFuncionario'] = $loginId;
+    $_SESSION['idEnderecoFuncionario'] = $enderecoId;
+    $_SESSION['idFormacaoFuncionario'] = $arrayFormacao['tipoFormacao'];
     ?>
 
     <!-- Page Content -->
@@ -77,14 +78,14 @@ $arrayEstado = mysqli_fetch_assoc($selectEstado);
                 <section>
                     <form action="updateFuncionario.php" method="POST">
                         <div class="form-group margin" id="funcionario">
-                            <label for="senhaAtualFuncionario">Senha atual:</label> <input class="form-control" type="text" id="senhaAtualFuncionario" name="senhaAtualFuncionario"value="<?php echo $arrayLogin['password']; ?>" ><br />
-                            <label for="senhaNovaFuncionario">Nova senha:</label> <input class="form-control" type="password" id="senhaNovaFuncionario" name="senhaNovaFuncionario" ><br />
-                            <label for="confirmarSenhaNovaFuncionario">Confirmar senha:</label> <input class="form-control" type="password" id="confirmarSenhaNovaFuncionario" name="confirmarSenhaNovaFuncionario" ><br />
-                            <label for="nomeFuncionario">Nome completo:</label> <input class="form-control" type="text" id="nomeFuncionario" name="nomeFuncionario"  value="<?php echo $arrayFuncionario['nome']; ?>"><br />
-                            <label for="cpfFuncionario">CPF: </label> <input class="form-control" type="text" id="cpfFuncionario" name="cpfFuncionario"  oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" value="<?php echo $arrayFuncionario['cpf']; ?>"><br />
+                            <label for="senhaAtualFuncionario">Senha atual:</label> <input class="form-control" type="text" id="senhaAtualFuncionario" name="senhaAtualFuncionario" value="<?php echo $arrayLogin['password']; ?>"><br />
+                            <label for="senhaNovaFuncionario">Nova senha:</label> <input class="form-control" type="password" id="senhaNovaFuncionario" name="senhaNovaFuncionario"><br />
+                            <label for="confirmarSenhaNovaFuncionario">Confirmar senha:</label> <input class="form-control" type="password" id="confirmarSenhaNovaFuncionario" name="confirmarSenhaNovaFuncionario"><br />
+                            <label for="nomeFuncionario">Nome completo:</label> <input class="form-control" type="text" id="nomeFuncionario" name="nomeFuncionario" value="<?php echo $arrayFuncionario['nome']; ?>"><br />
+                            <label for="cpfFuncionario">CPF: </label> <input class="form-control" type="text" id="cpfFuncionario" name="cpfFuncionario" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" value="<?php echo $arrayFuncionario['cpf']; ?>"><br />
                             <label for="dataNascFuncionario">Data de Nascimento: </label> <input class="form-control" type="date" id="dataNascFuncionario" name="dataNascFuncionario" value="<?php echo $arrayFuncionario['dataNasc']; ?>"><br /><br />
                             <label for="emailFuncionario">E-Mail: </label> <input class="form-control" type="email" name="emailFuncionario" id="emailFuncionario" value="<?php echo $arrayFuncionario['email']; ?>"><br />
-                            <label for="telefoneFuncionario">Telefone: </label><input class="form-control" type="text" name="telefoneFuncionario" id="telefoneFuncionario"  oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" value="<?php echo $arrayContato['telefone']; ?>"><br />
+                            <label for="telefoneFuncionario">Telefone: </label><input class="form-control" type="text" name="telefoneFuncionario" id="telefoneFuncionario" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" value="<?php echo $arrayContato['telefone']; ?>"><br />
                             <label for="telefoneFuncionario">Tipo do Telefone:</label>
                             <select class="form-control" name="tipoTelFuncionario" id="tipoTelFuncionario">
                                 <option value="1" <?php echo $arrayContato['tipo'] == 1 ? 'selected' : ''; ?>>Residencial</option>
@@ -94,11 +95,11 @@ $arrayEstado = mysqli_fetch_assoc($selectEstado);
                             <label for="tipoFormnacaoFuncionario">Tipo de formação:</label>
                             <select class="form-control" name="tipoFormacaoFuncionario" id="tipoFormacaoFuncionario">
                                 <option value="1" <?php echo $arrayFormacao['tipoFormacao'] == 1 ? 'selected' : ''; ?>>Enfermeiro</option>
-                                <option value="2" <?php echo $arrayFormacao['tipoFormacao'] == 2 ? 'selected' : ''; ?>>Técnico em enfermagem</option>
+                                <option value="2" <?php echo $arrayFormacao['tipoFormacao'] == 2 ? 'selected' : ''; ?>>Técnico em Enfermagem</option>
                             </select><br />
-                            <label for="cepFuncionario">CEP: </label> <input class="form-control" type="text" name="cepFuncionario" id="cepFuncionario"  oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" value="<?php echo $arrayEndereco['cep']; ?>"><br />
+                            <label for="cepFuncionario">CEP: </label> <input class="form-control" type="text" name="cepFuncionario" id="cepFuncionario" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" value="<?php echo $arrayEndereco['cep']; ?>"><br />
                             <label for="logradouroFuncionario">Logradouro: </label> <input class="form-control" type="text" name="logradouroFuncionario" id="logradouroFuncionario" value="<?php echo $arrayEndereco['logradouro']; ?>"><br />
-                            <label for="numeroFuncionario">Número: </label> <input class="form-control" type="text" name="numeroFuncionario" id="numeroFuncionario"  oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" value="<?php echo $arrayEndereco['numero']; ?>"><br />
+                            <label for="numeroFuncionario">Número: </label> <input class="form-control" type="text" name="numeroFuncionario" id="numeroFuncionario" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" value="<?php echo $arrayEndereco['numero']; ?>"><br />
                             <label for="complementoFuncionario">Complemento: </label> <input class="form-control" type="text" name="complementoFuncionario" id="complementoFuncionario" value="<?php echo $arrayEndereco['complemento']; ?>"><br />
                             <label for="bairroFuncionario">Bairro: </label> <input class="form-control" type="text" name="bairroFuncionario" id="bairroFuncionario" value="<?php echo $arrayEndereco['bairro']; ?>"><br />
                             <label for="cidadeFuncionario">Cidade: </label> <input class="form-control" type="text" name="cidadeFuncionario" name="cidadeFuncionario" value="<?php echo $arrayEndereco['cidade']; ?>"><br />

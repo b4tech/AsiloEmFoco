@@ -12,6 +12,7 @@
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+    <link rel="shortcut icon" href="../../ferramentas/graficos/ico.png">
 
     <!-- Custom styles for this template -->
     <link href="css/shop-homepage.css" rel="stylesheet">
@@ -49,15 +50,15 @@
 
     // Comando para criar matriz de dados de acordo com o select acima
     $arrayFuncionario = mysqli_fetch_assoc($selectFuncionario); // cria a instrução SQL que vai selecionar os dados
-    $formacaoId = $arrayFuncionario['formacaoId'];
     $total = mysqli_num_rows($selectFuncionario);
-    if ($total > 0 ) {
+    if ($total > 0) {
+        $formacaoId = $arrayFuncionario['formacaoId'];
         $contatoId = $arrayFuncionario['contatoId'];
         $selectContatoId = mysqli_query($connect, "SELECT * FROM `contato` WHERE idContato = '$contatoId'");
         $arrayContato = mysqli_fetch_assoc($selectContatoId);
+        $selectFormacao = mysqli_query($connect, "SELECT * FROM `formacaofuncionario` WHERE idFormacaoFuncionario = '$formacaoId'");
+        $arrayFormacao = mysqli_fetch_assoc($selectFormacao);
     }
-    $selectFormacao = mysqli_query($connect, "SELECT * FROM `formacaofuncionario` WHERE idFormacaoFuncionario = '$formacaoId'");
-    $arrayFormacao = mysqli_fetch_assoc($selectFormacao);
 
 
     ?>
@@ -149,7 +150,7 @@
                                             } else echo 'Técnico em Enfermagem';
                                             ?>
                                         </td>
-                                        
+
                                         <td>
                                             <button style="font-size:11px" onclick="location.href='atualizarFuncionario.php?edit=<?php echo $arrayFuncionario['idFuncionario']; ?>'">Editar <i class="fas fa-user-edit"></i></button>
                                             <button style="font-size:11px" onclick="location.href='deleteFuncionario.php?delete=<?php echo $arrayFuncionario['idFuncionario']; ?>'">Excluir <i class="fa fa-trash"></i></button>

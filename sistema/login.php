@@ -32,7 +32,7 @@ if (isset($entrar)) {
         $_SESSION['perfil'] = $arrayLogin["perfil"];
 
         // Select Asilo
-        $selectAsilo = mysqli_query($connect, "SELECT * FROM `asilo` WHERE loginId = $auxIdLogin");
+        $selectAsilo = mysqli_query($connect, "SELECT * FROM `asilo`");
         // Comando para criar matriz de dados de acordo com o select acima
         $arrayAsilo = mysqli_fetch_assoc($selectAsilo);
         $auxIdContato = $arrayAsilo['contatoId'];
@@ -130,6 +130,11 @@ if (isset($entrar)) {
         $arrayResponsavel = mysqli_fetch_assoc($selectResponsavel);
         $auxIdContato = $arrayResponsavel['contatoId'];
         $auxIdEndereco = $arrayResponsavel['enderecoId'];
+
+        // select Funcionário
+        $selectFuncionario = mysqli_query($connect, "SELECT * FROM `funcionario` WHERE asiloId = $auxIdLogin");
+        // comando para criar matriz de dados de acordo com o select acima
+        $arrayFuncionario = mysqli_fetch_assoc($selectFuncionario);
 
         // tabela endereco
         $_SESSION['enderecoIdAsilo'] = $arrayEndereco['idEndereco'];
