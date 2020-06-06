@@ -38,7 +38,7 @@
             $selectIdoso = mysqli_query($connect, "SELECT * FROM `idoso`");
             break;
         case '1':
-            $selectIdoso = mysqli_query($connect, "SELECT * FROM `idoso`, `responsavel` WHERE idoso.responsavelId = '$responsavelId' AND responsavel.asiloId = '$asiloId'");
+            $selectIdoso = mysqli_query($connect, "SELECT * FROM `idoso`, `responsavel` WHERE responsavel.asiloId = '$asiloId'");
             break;
         case '2':
             $selectIdoso = mysqli_query($connect, "SELECT * FROM `idoso` WHERE responsavelId = '$responsavelId'");
@@ -106,6 +106,48 @@
         <div class="row">
             <?php include 'nav-left.php'; ?>
 
+            <?php
+                if ($perfil == 1 ) { 
+
+            ?>
+            <div class="col-lg-9 my-4">
+                <div class="main">
+                    <table class="table">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Nome</th>
+                                <th scope="col">CPF</th>
+                                <th scope="col">Nascimento</th>
+                            </tr>
+                        </thead>
+
+                        <?php
+                        // se o número de resultados for maior que zero, mostra os dados
+                        if ($total > 0) {
+                            // inicia o loop que vai mostrar todos os dados
+                            do {
+                        ?>
+                                <tbody>
+                                    <tr>
+                                        <th scope="row"><?= $arrayIdoso['idIdoso'] ?></th>
+                                        <td><?= $arrayIdoso['nome'] ?></td>
+                                        <td><?= $arrayIdoso['cpf'] ?></td>
+                                        <td><?= $arrayIdoso['dataNasc'] ?></td>
+                                    </tr>
+                                </tbody>
+                        <?php
+                                // finaliza o loop que vai mostrar os dados
+                            } while ($arrayIdoso = mysqli_fetch_assoc($selectIdoso));
+                            // fim do if 
+                        }
+                        ?>
+                    </table>
+                </div>
+            </div>
+            <?php
+                } else {
+            ?>
             <div class="col-lg-9 my-4">
                 <button type="button" class="btn btn-primary" style="margin-bottom: 10px;" onclick="location.href='cadastroIdoso.php';">Novo Cadastro</button>
                 <div class="main">
@@ -147,6 +189,10 @@
                     </table>
                 </div>
             </div>
+            <?php
+                }
+            ?>
+
         </div>
     </div>
 

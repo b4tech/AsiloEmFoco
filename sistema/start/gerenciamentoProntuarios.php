@@ -30,11 +30,11 @@
 
     $connect = new mysqli('127.0.0.1', 'root', '', 'asiloemfoco');
 
-    $selectIdoso = mysqli_query($connect, "SELECT nome FROM `idoso` WHERE responsavelId = '$idResponsavel'");
+    $selectIdoso = mysqli_query($connect, "SELECT * FROM `idoso` WHERE responsavelId = '$idResponsavel'");
     $arrayIdoso = mysqli_fetch_assoc($selectIdoso);
 
     // Select prontuario
-    $selectProntuario = mysqli_query($connect, "SELECT * FROM `prontuario`");
+    $selectProntuario = mysqli_query($connect, "SELECT * FROM `prontuario` ");
     // Comando para criar matriz de dados de acordo com o select acima
     $arrayProntuario = mysqli_fetch_assoc($selectProntuario); // cria a instrução SQL que vai selecionar os dados
     $total = mysqli_num_rows($selectProntuario);
@@ -88,7 +88,7 @@
             display: <?php echo $funcionario; ?>
         }
     </style>
-
+    
     <div class="container">
         <div class="row">
             <!-- Menu lateral -->
@@ -110,7 +110,6 @@
                         </thead>
 
                         <?php
-                        // se o número de resultados for maior que zero, mostra os dados
                         mostrarProntuario();
                         ?>
                     </table>
