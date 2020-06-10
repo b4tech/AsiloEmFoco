@@ -41,7 +41,6 @@ CREATE TABLE IF NOT EXISTS `asilo` (
     `contatoId` int(9) NOT NULL,
     `cnpj`varchar(14) NOT NULL,
     `enderecoId` int(8)  NOT NULL,
-    `responsavelId` int(8),
     `loginId` int(8)  NOT NULL,
     `email` varchar(50) NOT NULL,
     PRIMARY KEY (`idAsilo`)
@@ -110,7 +109,6 @@ CREATE TABLE IF NOT EXISTS `login` (
 ALTER TABLE asilo
 ADD FOREIGN KEY (`contatoId`) REFERENCES contato(idContato) ON DELETE CASCADE,
 ADD FOREIGN KEY (`enderecoId`) REFERENCES endereco(idEndereco) ON DELETE CASCADE,
-ADD FOREIGN KEY (`responsavelId`) REFERENCES responsavel(idResponsavel) ON DELETE CASCADE,
 ADD FOREIGN KEY (`loginId`) REFERENCES login(idLogin) ON DELETE CASCADE;
 
 ALTER TABLE avaliacao

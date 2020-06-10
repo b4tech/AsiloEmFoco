@@ -11,6 +11,7 @@
 
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
     <link rel="shortcut icon" href="../../ferramentas/graficos/ico.png">
 
     <!-- Custom styles for this template -->
@@ -37,13 +38,13 @@
             $selectResponsavel = mysqli_query($connect, "SELECT * FROM `responsavel`");
             break;
         case '1':
-            $selectResponsavel = mysqli_query($connect, "SELECT * FROM `funcionario`");
+            $selectResponsavel = mysqli_query($connect, "SELECT * FROM `responsavel`");
             break;
         case '2':
-            $selectResponsavel = mysqli_query($connect, "SELECT * FROM `funcionario` WHERE asiloId = '$asiloId'");
+            $selectResponsavel = mysqli_query($connect, "SELECT * FROM `responsavel` WHERE asiloId = '$asiloId'");
             break;
         case '3':
-            $selectResponsavel = mysqli_query($connect, "SELECT * FROM `funcionario`");
+            $selectResponsavel = mysqli_query($connect, "SELECT * FROM `responsavel`");
             break;
     }
 
@@ -112,7 +113,7 @@
             <?php include 'nav-left.php'; ?>
 
             <div class="col-lg-9 my-4">
-                <button type="button" class="btn btn-primary" style="margin-bottom: 10px;" onclick="location.href='cadastroFuncionario.php';">Novo Cadastro</button>
+                <button type="button" class="btn btn-primary" style="margin-bottom: 10px;" onclick="location.href='cadastroResponsavel.php';">Novo Cadastro</button>
                 <div class="main">
                     <table class="table">
                         <thead class="thead-dark">
@@ -134,20 +135,20 @@
                         ?>
                                 <tbody>
                                     <tr>
-                                        <th scope="row"><?= $arrayFuncionario['idFuncionario'] ?></th>
-                                        <td><?= $arrayFuncionario['nome'] ?></td>
-                                        <td><?= $arrayFuncionario['cpf'] ?></td>
-                                        <td><?= $arrayFuncionario['email'] ?></td>
+                                        <th scope="row"><?= $arrayResponsavel['idResponsavel'] ?></th>
+                                        <td><?= $arrayResponsavel['nome'] ?></td>
+                                        <td><?= $arrayResponsavel['cpf'] ?></td>
+                                        <td><?= $arrayResponsavel['email'] ?></td>
                                         <td><?= $arrayContato['telefone'] ?></td>
                                         <td>
-                                            <button style="font-size:11px" onclick="location.href='atualizarFuncionario.php?edit=<?php echo $arrayFuncionario['idFuncionario']; ?>'">Editar <i class="fas fa-user-edit"></i></button>
-                                            <button style="font-size:11px" onclick="location.href='deleteFuncionario.php?delete=<?php echo $arrayFuncionario['idFuncionario']; ?>'">Excluir <i class="fa fa-trash"></i></button>
+                                            <button style="font-size:11px" onclick="location.href='atualizarResponsavel.php?edit=<?php echo $arrayResponsavel['idResponsavel']; ?>'">Editar <i class="fas fa-user-edit"></i></button>
+                                            <button style="font-size:11px" onclick="location.href='deleteResponsavel.php?delete=<?php echo $arrayResponsavel['idResponsavel']; ?>'">Excluir <i class="fa fa-trash"></i></button>
                                         </td>
                                     </tr>
                                 </tbody>
                         <?php
                                 // finaliza o loop que vai mostrar os dados
-                            } while ($arrayFuncionario = mysqli_fetch_assoc($selectFuncionario));
+                            } while ($arrayResponsavel = mysqli_fetch_assoc($selectResponsavel));
                             // fim do if 
                         }
                         ?>
