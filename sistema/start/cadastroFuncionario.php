@@ -120,8 +120,8 @@
                         </select><br />
                     </div>
                     <center>
-                        <input type="button" class="submit" value="Voltar" class="special" onclick="location.href='gerenciamentoFuncionarios.php';" />
                         <input type="submit" value="Cadastrar" name="cadastrar" id="cadastrar">
+                        <input type="button" class="submit" value="Voltar" class="special" onclick="location.href='gerenciamentoFuncionarios.php';" />
                     </center>
                 </form>
             </section>

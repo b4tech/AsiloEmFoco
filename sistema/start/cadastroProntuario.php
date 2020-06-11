@@ -54,8 +54,8 @@
                         <label for="descricao">Descrição: </label> <input class="form-control" type="text" id="descricaoProntuario" name="descricaoProntuario" required><br /><br />
                     </div>
                     <center>
-                        <input type="button" class="submit" value="Voltar" class="special" onclick="location.href='gerenciamentoProntuarios.php';" />
                         <input type="submit" value="Cadastrar" name="cadastrar" id="cadastrar">
+                        <input type="button" class="submit" value="Voltar" class="special" onclick="location.href='gerenciamentoProntuarios.php';" />
                     </center>
                 </form>
             </section>

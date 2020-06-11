@@ -25,14 +25,14 @@
         <div class="container">
             <section>
                 <form action="insertIdoso.php" method="POST">
-                    <div class="form-group margin" id="responsavel">
+                    <div class="form-group margin" id="idoso">
                         <label for="nome">Nome completo:</label> <input class="form-control" type="text" id="nomeIdoso" name="nomeIdoso" required><br />
                         <label for="cpf">CPF: </label> <input class="form-control" type="text" id="cpfIdoso" name="cpfIdoso" required oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"><br />
                         <label for="dataNasc">Data de Nascimento: </label> <input class="form-control" type="date" id="dataNascIdoso" name="dataNascIdoso" required><br /><br />
                     </div>
                     <center>
-                        <input type="button" class="submit" value="Voltar" class="special" onclick="location.href='gerenciamentoIdosos.php';" />
                         <input type="submit" value="Cadastrar" name="cadastrar" id="cadastrar">
+                        <input type="button" class="submit" value="Voltar" class="special" onclick="location.href='gerenciamentoIdosos.php';" />
                     </center>
                 </form>
             </section>

@@ -54,11 +54,11 @@ try {
         // } else {
         //     echo "Error updating record: " . mysqli_error($connect);
         // }
-        echo "<script language='javascript' type='text/javascript'>alert('Responsável atualizado com sucesso!');javascript:window.location='login.html';</script>";
+        echo "<script language='javascript' type='text/javascript'>alert('Responsável atualizado com sucesso!');javascript:window.location='gerenciamentoResponsaveis.html';</script>";
         session_destroy();
     } catch (\Throwable $th) {
         echo $th;
     }
 } catch (\Throwable $th) {
-    echo "<script language='javascript' type='text/javascript'>alert('Erro ao atualizar cadastro. Tente novamente.');</script>";
+    echo "<script language='javascript' type='text/javascript'>alert('Erro ao atualizar cadastro. Tente novamente.');javascript:window.location='gerenciamentoResponsaveis.html';</script>";
 }
