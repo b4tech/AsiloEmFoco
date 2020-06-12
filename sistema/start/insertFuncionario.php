@@ -26,7 +26,7 @@ $estadoCoren = $_POST['estadoCorenFuncionario'];
 $corenNumero = $_POST['numeroCorenFuncionario'];
 $coren = "COREN".$estadoCoren.$corenNumero;
 
-$connect = new mysqli('127.0.0.1', 'root', '', 'asiloemfoco');
+include_once 'conexao.php';
 $query_select = $connect->query("SELECT cpf FROM funcionario WHERE cpf='$cpf'");
 $row = $query_select->fetch_row();
 

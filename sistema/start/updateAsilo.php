@@ -31,7 +31,7 @@ $bairro = $_POST['bairroAsilo'];
 // estado
 $estado = $_POST['estadoAsilo'];
 
-$connect = new mysqli('127.0.0.1', 'root', '', 'asiloemfoco');
+include_once 'conexao.php';
 
 if ($novaSenha != null) {
     if ($novaSenha != $confirmaNovaSenha) {

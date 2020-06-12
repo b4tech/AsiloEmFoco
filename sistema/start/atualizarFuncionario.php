@@ -2,7 +2,7 @@
 
 $id = $_GET['edit'];
 $_SESSION['idFuncionario'] = $id;
-$connect = new mysqli("localhost", "root", "", "asiloemfoco");
+include_once 'conexao.php';
 $selectFuncionario = mysqli_query($connect, "SELECT * FROM funcionario WHERE idFuncionario = $id");
 $arrayFuncionario = mysqli_fetch_assoc($selectFuncionario);
 

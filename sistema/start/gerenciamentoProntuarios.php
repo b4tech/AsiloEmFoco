@@ -28,7 +28,7 @@
 
     $idResponsavel = $_SESSION['idResponsavel'];
 
-    $connect = new mysqli('127.0.0.1', 'root', '', 'asiloemfoco');
+    include_once 'conexao.php';
 
     $selectIdoso = mysqli_query($connect, "SELECT * FROM `idoso` WHERE responsavelId = '$idResponsavel'");
     $arrayIdoso = mysqli_fetch_assoc($selectIdoso);

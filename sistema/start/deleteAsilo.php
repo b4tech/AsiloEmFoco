@@ -1,6 +1,6 @@
 <?php
 $id = $_GET['delete'];
-$connect = new mysqli("localhost", "root", "", "asiloemfoco");
+include_once 'conexao.php';
 
 $selectAsilo = mysqli_query($connect, "SELECT * FROM asilo WHERE idAsilo = $id");
 $arrayAsilo = mysqli_fetch_assoc($selectAsilo);

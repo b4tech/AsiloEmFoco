@@ -1,7 +1,7 @@
 <?php
 
 $id = $_GET['edit'];
-$connect = new mysqli("localhost", "root", "", "asiloemfoco");
+include_once 'conexao.php';
 $query = mysqli_query($connect, "SELECT * FROM idoso WHERE idIdoso = $id");
 $arrayIdoso = mysqli_fetch_assoc($query);
 

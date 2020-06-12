@@ -6,7 +6,7 @@
     $idResponsavel = $_SESSION['idResponsavel'];
     $idIdoso = $_SESSION['idIdoso'];
 
-    $connect = new mysqli("localhost", "root", "", "asiloemfoco");
+    include_once 'conexao.php';
 
     isset($nome)?? $_SESSION['nome'];
     isset($cpf)?? $_SESSION['cpf'];

@@ -2,7 +2,7 @@
 
 $id = $_GET['edit'];
 $_SESSION['idResponsavel'] = $id;
-$connect = new mysqli("localhost", "root", "", "asiloemfoco");
+include_once 'conexao.php';
 $selectResponsavel = mysqli_query($connect, "SELECT * FROM responsavel WHERE idResponsavel = $id");
 $arrayResponsavel = mysqli_fetch_assoc($selectResponsavel);
 

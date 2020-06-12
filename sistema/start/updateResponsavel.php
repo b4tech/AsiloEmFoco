@@ -29,7 +29,7 @@ $cep = $_POST['cepResponsavel'];
 $bairro = $_POST['bairroResponsavel'];
 $estado = $_POST['estadoResponsavel'];
 
-$connect = new mysqli('127.0.0.1', 'root', '', 'asiloemfoco');
+include_once 'conexao.php';
 
 if ($novaSenha != null) {
     if ($novaSenha != $confirmaNovaSenha) {

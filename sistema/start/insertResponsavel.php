@@ -17,7 +17,7 @@ $cep = $_POST['cep'];
 $bairro = $_POST['bairro'];
 $estado = $_POST['estado'];
 
-$connect = new mysqli('127.0.0.1', 'root', '', 'asiloemfoco');
+include_once 'conexao.php';
 $query_select = $connect->query("SELECT cpf FROM responsavel WHERE cpf='$cpf'");
 $row = $query_select->fetch_row();
 

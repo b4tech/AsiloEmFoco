@@ -30,7 +30,7 @@
     $responsavelId = $_SESSION['idResponsavel'];
     $asiloId = $_SESSION['idAsilo'];
 
-    $connect = new mysqli('127.0.0.1', 'root', '', 'asiloemfoco');
+    include_once 'conexao.php';
 
     // Select Idoso
     switch ($perfil) {

@@ -4,7 +4,7 @@ $login = $_POST['login'];
 $entrar = $_POST['entrar'];
 $senha = $_POST['senha'];
 
-$connect = new mysqli('127.0.0.1', 'root', '', 'asiloemfoco');
+include_once './start/conexao.php';
 
 // Select Login
 $selectLogin = mysqli_query($connect, "SELECT * FROM `login` WHERE username='$login' AND password='$senha'");

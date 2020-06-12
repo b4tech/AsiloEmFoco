@@ -1,6 +1,6 @@
 <?php
 session_start();
-$connect = new mysqli("localhost", "root", "", "asiloemfoco");
+include_once 'conexao.php';
 
 $idFuncionario = $_SESSION['idFuncionario'];
 $idContatoFuncionario = $_SESSION['idContatoFuncionario'];

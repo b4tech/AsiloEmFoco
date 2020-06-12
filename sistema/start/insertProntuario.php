@@ -6,7 +6,7 @@ $data = $_POST['dataProntuario'];
 $hora = $_POST['horaProntuario'];
 $descricao = $_POST['descricaoProntuario'];
 
-$connect = new mysqli('127.0.0.1', 'root', '', 'asiloemfoco');
+include_once 'conexao.php';
 
 if ($query = mysqli_query($connect, "INSERT INTO `prontuario` (`data`, `hora`, `descricao`, `idosoId`) VALUES ('$data', '$hora', '$descricao', '$idIdoso')")) {
     echo "<script language='javascript' type='text/javascript'>alert('Prontuário cadastrado com sucesso!');window.location.href='./gerenciamentoProntuarios.php'</script>";
