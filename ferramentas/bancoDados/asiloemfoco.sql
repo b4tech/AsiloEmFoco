@@ -3,16 +3,13 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 10-Jun-2020 às 03:41
--- Versão do servidor: 10.4.11-MariaDB
--- versão do PHP: 7.4.6
+-- Generation Time: Jun 12, 2020 at 02:31 AM
+-- Server version: 10.4.11-MariaDB
+-- PHP Version: 7.4.5
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = "+00:00";
-
-CREATE DATABASE asiloemfoco;
-USE asiloemfoco;
 
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -21,13 +18,13 @@ USE asiloemfoco;
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Banco de dados: `asiloemfoco`
+-- Database: `asiloemfoco`
 --
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `asilo`
+-- Table structure for table `asilo`
 --
 
 CREATE TABLE `asilo` (
@@ -41,7 +38,7 @@ CREATE TABLE `asilo` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Extraindo dados da tabela `asilo`
+-- Dumping data for table `asilo`
 --
 
 INSERT INTO `asilo` (`idAsilo`, `razaoSocial`, `contatoId`, `cnpj`, `enderecoId`, `loginId`, `email`) VALUES
@@ -50,7 +47,7 @@ INSERT INTO `asilo` (`idAsilo`, `razaoSocial`, `contatoId`, `cnpj`, `enderecoId`
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `avaliacao`
+-- Table structure for table `avaliacao`
 --
 
 CREATE TABLE `avaliacao` (
@@ -63,7 +60,7 @@ CREATE TABLE `avaliacao` (
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `contato`
+-- Table structure for table `contato`
 --
 
 CREATE TABLE `contato` (
@@ -73,18 +70,21 @@ CREATE TABLE `contato` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Extraindo dados da tabela `contato`
+-- Dumping data for table `contato`
 --
 
 INSERT INTO `contato` (`idContato`, `tipo`, `telefone`) VALUES
 (1, '1', '2154875421'),
-(2, '2', '11965326532'),
-(3, '2', '11965329865');
+(2, '', ''),
+(3, '2', '11965329865'),
+(4, '1', '1122223333'),
+(5, '1', '1122223333'),
+(6, '2', '1122223333');
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `endereco`
+-- Table structure for table `endereco`
 --
 
 CREATE TABLE `endereco` (
@@ -99,18 +99,21 @@ CREATE TABLE `endereco` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Extraindo dados da tabela `endereco`
+-- Dumping data for table `endereco`
 --
 
 INSERT INTO `endereco` (`idEndereco`, `cidade`, `logradouro`, `numero`, `cep`, `bairro`, `complemento`, `estadoId`) VALUES
 (1, 'São Paulo[', 'Rua A', 123, '02154785', 'Bairro do Asilo', 'casa Dev', 25),
 (2, 'Salvador', 'Rua B', 321, '02145785', 'Bairro do responsavel', 'casa 1', 5),
-(3, 'São Paulo', 'Rua C', 231, '03265986', 'Bairro do funcionario', 'Casa B', 25);
+(3, 'São Paulo', 'Rua C', 231, '03265986', 'Bairro do funcionario', 'Casa B', 25),
+(4, 'Salvador', 'Rua Teste', 990, '03232934', 'Bairro Teste', '', 5),
+(5, 'Curitiba', 'Rua Teste', 123, '1234567', 'Bairro Teste', '', 16),
+(6, 'Belo Horizonte', 'Rua Teste', 12345, '03820240', 'Bairro AA', '', 13);
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `estado`
+-- Table structure for table `estado`
 --
 
 CREATE TABLE `estado` (
@@ -120,7 +123,7 @@ CREATE TABLE `estado` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Extraindo dados da tabela `estado`
+-- Dumping data for table `estado`
 --
 
 INSERT INTO `estado` (`idEstado`, `sigla`, `nome`) VALUES
@@ -155,7 +158,7 @@ INSERT INTO `estado` (`idEstado`, `sigla`, `nome`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `formacaofuncionario`
+-- Table structure for table `formacaofuncionario`
 --
 
 CREATE TABLE `formacaofuncionario` (
@@ -165,7 +168,7 @@ CREATE TABLE `formacaofuncionario` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Extraindo dados da tabela `formacaofuncionario`
+-- Dumping data for table `formacaofuncionario`
 --
 
 INSERT INTO `formacaofuncionario` (`idFormacaoFuncionario`, `tipoFormacao`, `coren`) VALUES
@@ -174,7 +177,7 @@ INSERT INTO `formacaofuncionario` (`idFormacaoFuncionario`, `tipoFormacao`, `cor
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `funcionario`
+-- Table structure for table `funcionario`
 --
 
 CREATE TABLE `funcionario` (
@@ -191,7 +194,7 @@ CREATE TABLE `funcionario` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Extraindo dados da tabela `funcionario`
+-- Dumping data for table `funcionario`
 --
 
 INSERT INTO `funcionario` (`idFuncionario`, `nome`, `cpf`, `email`, `dataNasc`, `contatoId`, `asiloId`, `enderecoId`, `formacaoId`, `loginId`) VALUES
@@ -200,7 +203,7 @@ INSERT INTO `funcionario` (`idFuncionario`, `nome`, `cpf`, `email`, `dataNasc`, 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `idoso`
+-- Table structure for table `idoso`
 --
 
 CREATE TABLE `idoso` (
@@ -212,7 +215,7 @@ CREATE TABLE `idoso` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Extraindo dados da tabela `idoso`
+-- Dumping data for table `idoso`
 --
 
 INSERT INTO `idoso` (`idIdoso`, `dataNasc`, `cpf`, `nome`, `responsavelId`) VALUES
@@ -221,7 +224,7 @@ INSERT INTO `idoso` (`idIdoso`, `dataNasc`, `cpf`, `nome`, `responsavelId`) VALU
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `login`
+-- Table structure for table `login`
 --
 
 CREATE TABLE `login` (
@@ -233,19 +236,19 @@ CREATE TABLE `login` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Extraindo dados da tabela `login`
+-- Dumping data for table `login`
 --
 
 INSERT INTO `login` (`idLogin`, `username`, `password`, `confirmPassword`, `perfil`) VALUES
 (1, 'adm', 'adm', 'adm', 0),
 (2, 'asilo', 'asilo', 'asilo', 1),
-(3, 'resp', 'resp', 'resp', 2),
-(4, 'func', 'func', 'func', 3);
+(4, 'func', 'func', 'func', 3),
+(7, 'resp', 'resp', 'resp', 2);
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `prontuario`
+-- Table structure for table `prontuario`
 --
 
 CREATE TABLE `prontuario` (
@@ -257,7 +260,7 @@ CREATE TABLE `prontuario` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Extraindo dados da tabela `prontuario`
+-- Dumping data for table `prontuario`
 --
 
 INSERT INTO `prontuario` (`idProntuario`, `descricao`, `data`, `hora`, `idosoId`) VALUES
@@ -266,7 +269,7 @@ INSERT INTO `prontuario` (`idProntuario`, `descricao`, `data`, `hora`, `idosoId`
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `responsavel`
+-- Table structure for table `responsavel`
 --
 
 CREATE TABLE `responsavel` (
@@ -282,18 +285,18 @@ CREATE TABLE `responsavel` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Extraindo dados da tabela `responsavel`
+-- Dumping data for table `responsavel`
 --
 
 INSERT INTO `responsavel` (`idResponsavel`, `nome`, `cpf`, `email`, `dataNasc`, `contatoId`, `enderecoId`, `asiloId`, `loginId`) VALUES
-(1, 'Responsável Da Silva', '32165498700', 'responsavelDev@b4.com', '1986-02-21', 2, 2, NULL, 3);
+(1, 'Responsável Teste atualiado', '11122233344', 'resp@resp.com', '1980-01-01', 6, 6, NULL, 7);
 
 --
--- Índices para tabelas despejadas
+-- Indexes for dumped tables
 --
 
 --
--- Índices para tabela `asilo`
+-- Indexes for table `asilo`
 --
 ALTER TABLE `asilo`
   ADD PRIMARY KEY (`idAsilo`),
@@ -302,39 +305,39 @@ ALTER TABLE `asilo`
   ADD KEY `loginId` (`loginId`);
 
 --
--- Índices para tabela `avaliacao`
+-- Indexes for table `avaliacao`
 --
 ALTER TABLE `avaliacao`
   ADD PRIMARY KEY (`idAvaliacao`),
   ADD KEY `asiloId` (`asiloId`);
 
 --
--- Índices para tabela `contato`
+-- Indexes for table `contato`
 --
 ALTER TABLE `contato`
   ADD PRIMARY KEY (`idContato`);
 
 --
--- Índices para tabela `endereco`
+-- Indexes for table `endereco`
 --
 ALTER TABLE `endereco`
   ADD PRIMARY KEY (`idEndereco`),
   ADD KEY `estadoId` (`estadoId`);
 
 --
--- Índices para tabela `estado`
+-- Indexes for table `estado`
 --
 ALTER TABLE `estado`
   ADD PRIMARY KEY (`idEstado`);
 
 --
--- Índices para tabela `formacaofuncionario`
+-- Indexes for table `formacaofuncionario`
 --
 ALTER TABLE `formacaofuncionario`
   ADD PRIMARY KEY (`idFormacaoFuncionario`);
 
 --
--- Índices para tabela `funcionario`
+-- Indexes for table `funcionario`
 --
 ALTER TABLE `funcionario`
   ADD PRIMARY KEY (`idFuncionario`),
@@ -345,27 +348,27 @@ ALTER TABLE `funcionario`
   ADD KEY `loginId` (`loginId`);
 
 --
--- Índices para tabela `idoso`
+-- Indexes for table `idoso`
 --
 ALTER TABLE `idoso`
   ADD PRIMARY KEY (`idIdoso`),
   ADD KEY `responsavelId` (`responsavelId`);
 
 --
--- Índices para tabela `login`
+-- Indexes for table `login`
 --
 ALTER TABLE `login`
   ADD PRIMARY KEY (`idLogin`);
 
 --
--- Índices para tabela `prontuario`
+-- Indexes for table `prontuario`
 --
 ALTER TABLE `prontuario`
   ADD PRIMARY KEY (`idProntuario`),
   ADD KEY `idosoId` (`idosoId`);
 
 --
--- Índices para tabela `responsavel`
+-- Indexes for table `responsavel`
 --
 ALTER TABLE `responsavel`
   ADD PRIMARY KEY (`idResponsavel`),
@@ -375,129 +378,74 @@ ALTER TABLE `responsavel`
   ADD KEY `loginId` (`loginId`);
 
 --
--- AUTO_INCREMENT de tabelas despejadas
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT de tabela `asilo`
+-- AUTO_INCREMENT for table `asilo`
 --
 ALTER TABLE `asilo`
   MODIFY `idAsilo` int(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT de tabela `avaliacao`
+-- AUTO_INCREMENT for table `avaliacao`
 --
 ALTER TABLE `avaliacao`
   MODIFY `idAvaliacao` int(9) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de tabela `contato`
+-- AUTO_INCREMENT for table `contato`
 --
 ALTER TABLE `contato`
-  MODIFY `idContato` int(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `idContato` int(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT de tabela `endereco`
+-- AUTO_INCREMENT for table `endereco`
 --
 ALTER TABLE `endereco`
-  MODIFY `idEndereco` int(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `idEndereco` int(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT de tabela `estado`
+-- AUTO_INCREMENT for table `estado`
 --
 ALTER TABLE `estado`
   MODIFY `idEstado` int(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
--- AUTO_INCREMENT de tabela `formacaofuncionario`
+-- AUTO_INCREMENT for table `formacaofuncionario`
 --
 ALTER TABLE `formacaofuncionario`
   MODIFY `idFormacaoFuncionario` int(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT de tabela `funcionario`
+-- AUTO_INCREMENT for table `funcionario`
 --
 ALTER TABLE `funcionario`
   MODIFY `idFuncionario` int(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT de tabela `idoso`
+-- AUTO_INCREMENT for table `idoso`
 --
 ALTER TABLE `idoso`
   MODIFY `idIdoso` int(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT de tabela `login`
+-- AUTO_INCREMENT for table `login`
 --
 ALTER TABLE `login`
-  MODIFY `idLogin` int(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `idLogin` int(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
--- AUTO_INCREMENT de tabela `prontuario`
+-- AUTO_INCREMENT for table `prontuario`
 --
 ALTER TABLE `prontuario`
   MODIFY `idProntuario` int(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT de tabela `responsavel`
+-- AUTO_INCREMENT for table `responsavel`
 --
 ALTER TABLE `responsavel`
   MODIFY `idResponsavel` int(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- Restrições para despejos de tabelas
---
-
---
--- Limitadores para a tabela `asilo`
---
-ALTER TABLE `asilo`
-  ADD CONSTRAINT `asilo_ibfk_1` FOREIGN KEY (`contatoId`) REFERENCES `contato` (`idContato`) ON DELETE CASCADE,
-  ADD CONSTRAINT `asilo_ibfk_2` FOREIGN KEY (`enderecoId`) REFERENCES `endereco` (`idEndereco`) ON DELETE CASCADE,
-  ADD CONSTRAINT `asilo_ibfk_3` FOREIGN KEY (`loginId`) REFERENCES `login` (`idLogin`) ON DELETE CASCADE;
-
---
--- Limitadores para a tabela `avaliacao`
---
-ALTER TABLE `avaliacao`
-  ADD CONSTRAINT `avaliacao_ibfk_1` FOREIGN KEY (`asiloId`) REFERENCES `asilo` (`idAsilo`) ON DELETE CASCADE;
-
---
--- Limitadores para a tabela `endereco`
---
-ALTER TABLE `endereco`
-  ADD CONSTRAINT `endereco_ibfk_1` FOREIGN KEY (`estadoId`) REFERENCES `estado` (`idEstado`) ON DELETE CASCADE;
-
---
--- Limitadores para a tabela `funcionario`
---
-ALTER TABLE `funcionario`
-  ADD CONSTRAINT `funcionario_ibfk_1` FOREIGN KEY (`asiloId`) REFERENCES `asilo` (`idAsilo`) ON DELETE CASCADE,
-  ADD CONSTRAINT `funcionario_ibfk_2` FOREIGN KEY (`contatoId`) REFERENCES `contato` (`idContato`) ON DELETE CASCADE,
-  ADD CONSTRAINT `funcionario_ibfk_3` FOREIGN KEY (`enderecoId`) REFERENCES `endereco` (`idEndereco`) ON DELETE CASCADE,
-  ADD CONSTRAINT `funcionario_ibfk_4` FOREIGN KEY (`formacaoId`) REFERENCES `formacaofuncionario` (`idFormacaoFuncionario`) ON DELETE CASCADE,
-  ADD CONSTRAINT `funcionario_ibfk_5` FOREIGN KEY (`loginId`) REFERENCES `login` (`idLogin`) ON DELETE CASCADE;
-
---
--- Limitadores para a tabela `idoso`
---
-ALTER TABLE `idoso`
-  ADD CONSTRAINT `idoso_ibfk_1` FOREIGN KEY (`responsavelId`) REFERENCES `responsavel` (`idResponsavel`) ON DELETE CASCADE;
-
---
--- Limitadores para a tabela `prontuario`
---
-ALTER TABLE `prontuario`
-  ADD CONSTRAINT `prontuario_ibfk_1` FOREIGN KEY (`idosoId`) REFERENCES `idoso` (`idIdoso`) ON DELETE CASCADE;
-
---
--- Limitadores para a tabela `responsavel`
---
-ALTER TABLE `responsavel`
-  ADD CONSTRAINT `responsavel_ibfk_1` FOREIGN KEY (`contatoId`) REFERENCES `contato` (`idContato`) ON DELETE CASCADE,
-  ADD CONSTRAINT `responsavel_ibfk_2` FOREIGN KEY (`enderecoId`) REFERENCES `endereco` (`idEndereco`) ON DELETE CASCADE,
-  ADD CONSTRAINT `responsavel_ibfk_3` FOREIGN KEY (`asiloId`) REFERENCES `asilo` (`idAsilo`) ON DELETE CASCADE,
-  ADD CONSTRAINT `responsavel_ibfk_4` FOREIGN KEY (`loginId`) REFERENCES `login` (`idLogin`) ON DELETE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
