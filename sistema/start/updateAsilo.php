@@ -6,13 +6,13 @@ $idEnderecoAsilo = $_SESSION['enderecoIdAsilo'];
 $idContatoAsilo = $_SESSION['idContatoAsilo'];
 
 //login
-$senha = $_SESSION['senhaAsilo'];
+$senha = $_SESSION['senhaAtualAsilo'];
 $novaSenha = $_POST['novaSenhaAsilo'];
 $confirmaNovaSenha = $_POST['confirmaNovaSenhaAsilo'];
 
 //asilo
-$razaoSocial = $_POST['razaoSocial'];
-$cnpj = $_POST['cnpj'];
+$razaoSocial = $_POST['razaoSocialAsilo'];
+$cnpj = $_POST['cnpjAsilo'];
 $email = $_POST['emailAsilo'];
 
 // telefone
@@ -26,6 +26,7 @@ $complemento = $_POST['complementoAsilo'];
 $numero = $_POST['numeroAsilo'];
 $cep = $_POST['cepAsilo'];
 $bairro = $_POST['bairroAsilo'];
+
 
 // estado
 $estado = $_POST['estadoAsilo'];
@@ -57,11 +58,10 @@ try {
         //     echo "Error updating record: " . mysqli_error($connect);
         // }
         // Voltar para a home
-        echo "<script language='javascript' type='text/javascript'>alert('Asilo atualizado com sucesso!');javascript:window.location='login.html';</script>";
-        session_destroy();
+        echo "<script language='javascript' type='text/javascript'>alert('Asilo atualizado com sucesso!');javascript:window.location='gerenciamentoAsilos.php';</script>";
     } catch (\Throwable $th) {
         echo $th;
     }
 } catch (\Throwable $th) {
-    echo "<script language='javascript' type='text/javascript'>alert('Erro ao atualizar cadastro. Tente novamente.');</script>";
+    echo "<script language='javascript' type='text/javascript'>alert('Erro ao atualizar cadastro. Tente novamente.');javascript:window.location='gerenciamentoAsilos.php';</script>";
 }
